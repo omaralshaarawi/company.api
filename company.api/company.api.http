@@ -1,0 +1,17 @@
+@company.api_HostAddress = http://localhost:5219
+
+GET {{company.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+### Get list of employees
+GET {{company.api_HostAddress}}/api/employees
+Accept: application/json
+
+### Get single employee by id 
+GET {{company.api_HostAddress}}/api/employees/1
+Accept: application/json
+
+###
+

@@ -6,12 +6,13 @@ namespace company.api.Services
     {
         Task<List<AssetTypeDto>> GetAssetTypesAsync();
 
-        Task<AssetTypeDto> GetAssetTypeAsync(int assetTypeId);
+        Task<AssetTypeDto?> GetAssetTypeAsync(int assetTypeId);
 
         Task<AssetTypeDto> CreateAssetTypeAsync(string assetTypeName);
 
-        Task<AssetTypeDto> UpdateAssetTypeAsync(int assetTypeId, string assetTypeName);
+        Task<AssetTypeDto?> UpdateAssetTypeAsync(int assetTypeId, string assetTypeName);
      
         Task<bool> DeleteAssetTypeAsync(int assetTypeId);
+
     }
 }

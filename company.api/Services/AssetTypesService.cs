@@ -41,10 +41,10 @@ namespace company.api.Services
             return true;
         }
 
-        public async Task<AssetTypeDto> GetAssetTypeAsync(int assetTypeId)
+        public async Task<AssetTypeDto?> GetAssetTypeAsync(int assetTypeId)
         {
             var assetType = await _context.AssetTypes.FindAsync(assetTypeId);
-            if (assetType is null) throw new InvalidOperationException("Asset type not found");
+            if (assetType is null) return null;
             return new AssetTypeDto
             {
                 AssetTypeId = assetType.AssetTypeId,
@@ -63,10 +63,10 @@ namespace company.api.Services
             }).ToList();
         }
 
-        public async Task<AssetTypeDto> UpdateAssetTypeAsync(int assetTypeId, string assetTypeName)
+        public async Task<AssetTypeDto?> UpdateAssetTypeAsync(int assetTypeId, string assetTypeName)
         {
             var assetType = await _context.AssetTypes.FindAsync(assetTypeId);
-            if (assetType is null) throw new InvalidOperationException("Asset type not found");
+            if (assetType is null) return null;
 
             assetType.TypeName = assetTypeName;
             _context.AssetTypes.Update(assetType);

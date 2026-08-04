@@ -5,7 +5,16 @@
         int EmployeeId,
         int AssetId,
         DateOnly? AssignedDate,
-        DateOnly? ReturnDate
+        DateOnly? ReturnedDate,
+        string? Notes
     );
+    public record CreateEmployeeAssetRequest(
+       int EmployeeId,
+       int AssetId,
+       DateOnly? AssignedDate,
+       DateOnly? ReturnDate,
+       string? Notes
+   );
+
 
 }

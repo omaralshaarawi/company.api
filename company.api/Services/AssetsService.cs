@@ -63,16 +63,17 @@ namespace company.api.Services
                 asset.SerialNumber, asset.PurchaseDate, asset.PurchaseCost, asset.Status);
         }
 
-        public Task<List<EmployeeAssetDto>> GetAssetHistoryAsync(int assetId)
+        public async Task<List<EmployeeAssetDto>> GetAssetHistoryAsync(int assetId)
         {
-            var history = _context.EmployeeAssets
+            var history = await _context.EmployeeAssets
                 .Where(ea => ea.AssetId == assetId)
                 .Select(ea => new EmployeeAssetDto(
                     ea.EmployeeAssetId,
                     ea.EmployeeId,
                     ea.AssetId,
                     ea.AssignedDate,
-                    ea.ReturnedDate))
+                    ea.ReturnedDate,
+                    ea.Notes))
                 .ToListAsync();
             return history;
         }

@@ -19,6 +19,7 @@ builder.Services.AddScoped<IAssetTypesService, AssetTypesService>();
 builder.Services.AddScoped<IAssetsService, AssetsService>();
 builder.Services.AddScoped<IFingerprintsService, FingerprintsService>();
 builder.Services.AddScoped<IEmployeeAssetsService, EmployeeAssetsService>();
+builder.Services.AddScoped<IAttendanceLogsService, AttendanceLogsService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

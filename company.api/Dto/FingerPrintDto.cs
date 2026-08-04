@@ -1,12 +1,20 @@
-﻿namespace company.api.Dto
+﻿
+namespace company.api.Dto
 {
-    public class FingerprintDto
-    {
-        public int FingerprintId { get; set; }
-        public int EmployeeId { get; set; }
-        public string FingerIndex { get; set; } = null!;
-        public string? DeviceId { get; set; }
-        public DateTime? EnrolledDate { get; set; }
-        public byte? Quality { get; set; }
-    }
+    public record FingerprintDto(
+        int FingerprintId,
+        int EmployeeId,
+        string FingerIndex, 
+        string? DeviceId,
+        DateTime? EnrolledDate,
+        byte? Quality
+    );
+    public record CreateFingerprintRequest(
+        int EmployeeId,
+        string FingerIndex,
+        string? DeviceId,
+        string  TemplateData,
+        DateTime? EnrolledDate,
+        string? Quality
+    );
 }

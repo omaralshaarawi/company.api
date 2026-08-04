@@ -17,6 +17,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDepartmentsService, DepartmentsService>();
 builder.Services.AddScoped<IAssetTypesService, AssetTypesService>();
 builder.Services.AddScoped<IAssetsService, AssetsService>();
+builder.Services.AddScoped<IFingerprintsService, FingerprintsService>();
 builder.Services.AddScoped<IEmployeeAssetsService, EmployeeAssetsService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

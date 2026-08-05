@@ -1,5 +1,6 @@
 ﻿using company.api.Dto;
 using company.api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -22,7 +23,7 @@ namespace company.api.Controllers
         public async Task<ActionResult<List<AssetTypeDto>>> GetAssetTypes()
         {
             var assetTypes = await _assetTypesService.GetAssetTypesAsync();
-            if(assetTypes.IsNullOrEmpty()) {
+            if(assetTypes!=null && assetTypes.Any()) {
                 return NotFound("No asset types found");
             }
             return Ok(assetTypes);
@@ -52,6 +53,7 @@ namespace company.api.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteAssetType(int id)
         {

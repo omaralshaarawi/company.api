@@ -1,5 +1,6 @@
 ﻿using company.api.Dto;
 using company.api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -59,11 +60,12 @@ namespace company.api.Controllers
         }
 
         // DELETE api/departments/5
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteDepartmentAsync(int id)
         {
             var employeesInDepartment = await _employeeService.GetEmployeeListAsync(id, "Active");
-            if(!employeesInDepartment.IsNullOrEmpty())
+            if (employeesInDepartment != null && employeesInDepartment.Any())
                 return BadRequest("Cannot delete department with active employees.");
             var result = await _departmentsService.DeleteDepartmentAsync(id);
             if (result == false)

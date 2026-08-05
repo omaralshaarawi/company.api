@@ -1,5 +1,6 @@
 ﻿using company.api.Dto;
 using company.api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -60,7 +61,7 @@ namespace company.api.Controllers
             }
             return NoContent();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteReport(int id)
         {

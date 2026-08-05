@@ -34,7 +34,7 @@ public partial class CompanyContext : DbContext
 
     public virtual DbSet<ReportType> ReportTypes { get; set; }
 
-
+    public virtual DbSet<User> Users { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Asset>(entity =>
@@ -99,6 +99,18 @@ public partial class CompanyContext : DbContext
             entity.HasOne(d => d.RelatedEmployee).WithMany(p => p.ReportRelatedEmployees).HasConstraintName("FK_Reports_RelatedEmployee");
 
             entity.HasOne(d => d.ReportType).WithMany(p => p.Reports).HasConstraintName("FK_Reports_ReportTypes");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasIndex(e => e.Username, "UQ_Users_Username").IsUnique();
+
+            entity.Property(e => e.Role).HasDefaultValue("User");
+
+            entity.HasOne(d => d.Employee)
+                .WithMany()
+                .HasForeignKey(d => d.EmployeeId)
+                .HasConstraintName("FK_Users_Employees");
         });
 
         OnModelCreatingPartial(modelBuilder);

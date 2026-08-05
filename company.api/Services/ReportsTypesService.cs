@@ -30,7 +30,7 @@ namespace company.api.Services
             
             var reportType = await _context.ReportTypes.FindAsync(id);
             var reports = await _context.Reports.Where(r => r.ReportTypeId == id).ToListAsync();
-            if (reportType == null || !reports.IsNullOrEmpty()) return false; 
+            if (reportType == null || !(reports!=null && reports.Any())) return false; 
             _context.ReportTypes.Remove(reportType);
             await _context.SaveChangesAsync();
             return true;

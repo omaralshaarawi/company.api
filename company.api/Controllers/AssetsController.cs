@@ -1,5 +1,6 @@
 ﻿using company.api.Dto;
 using company.api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace company.api.Controllers
@@ -16,6 +17,7 @@ namespace company.api.Controllers
         }
 
         // GET: api/Assets with opitional filters
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<AssetDto>>> GetAssets([FromQuery] int? assetTypeId, [FromQuery] string? status)
         {
@@ -24,6 +26,7 @@ namespace company.api.Controllers
         }
 
         // GET: api/Assets/{id}
+        [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<AssetDto>> GetAsset(int id)
         {
@@ -50,6 +53,7 @@ namespace company.api.Controllers
         }
 
         // DELETE: api/Assets/{id}
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteAsset(int id)
         {

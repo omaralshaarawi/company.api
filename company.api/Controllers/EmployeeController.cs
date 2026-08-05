@@ -1,6 +1,7 @@
 ﻿using company.api.Dto;
 using company.api.Models;
 using company.api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace company.api.Controllers
@@ -10,7 +11,6 @@ namespace company.api.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
-
         public EmployeesController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
@@ -53,6 +53,7 @@ namespace company.api.Controllers
         }
 
         // DELETE api/employees/5
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteEmployeeAsync(int id)
         {

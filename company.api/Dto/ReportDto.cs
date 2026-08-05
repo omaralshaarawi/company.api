@@ -1,22 +1,43 @@
-﻿namespace company.api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace company.api.Dto
 {
-    public class ReportDto
-    {
-        public int ReportId { get; set; }
-        public int? ReportTypeId { get; set; }
-        public string? ReportTypeName { get; set; } 
-        public string Title { get; set; } = null!;
+    public record ReportDto(
+        int ReportId,
+        int? ReportTypeId,
+        string Title,
+        int? GeneratedById,
+        int? RelatedEmployeeId,
+        int? RelatedAssetId,
+        string? Summary, 
+        DateTime? CreatedAt
+    );
 
-        public int? GeneratedById { get; set; }
-        public string? GeneratedByName { get; set; } 
+    public record ReportDtoResponse(
+        int ReportId,
+        string? employeeName,
+        string? ReportTypeName,
+        string Title,
+        string? summary,
+        DateTime? CreatedAt
+    );
 
-        public int? RelatedEmployeeId { get; set; }
-        public string? RelatedEmployeeName { get; set; } 
+    public record CreateReportRequest(
+        int? ReportTypeId,
+        string Title,
+        int? GeneratedById,
+        int? RelatedEmployeeId,
+        int? RelatedAssetId,
+        string? Summary
+    );
 
-        public int? RelatedAssetId { get; set; }
-        public string? RelatedAssetName { get; set; } 
-
-        public string? Summary { get; set; }
-        public DateTime? GeneratedDate { get; set; }
-    }
+    public record UpdateReportRequest(
+        int? ReportTypeId,
+        string? Title,
+        int? GeneratedById,
+        int? RelatedEmployeeId,
+        int? RelatedAssetId,
+        string? Summary,
+        DateTime? CreatedAt
+    );
 }

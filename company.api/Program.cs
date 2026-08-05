@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+using Serilog;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -66,7 +67,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 builder.Services.AddAuthorization();
-
+builder.Host.UseSerilog((context, config) =>
+{
+    config
+    .ReadFrom.Configuration(context.Configuration)
+    .WriteTo.Console()
+    .WriteTo.File("Logs/company-api-.log", rollingInterval: RollingInterval.Day);
+});
 var app = builder.Build();
 
 

@@ -1,19 +1,22 @@
-﻿namespace company.api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+
+namespace company.api.Dto
 {
     public record EmployeeAssetDto(
-        int EmployeeAssetId,
-        int EmployeeId,
-        int AssetId,
+       [Required] int EmployeeAssetId,
+        [Required] int EmployeeId,
+        [Required] int AssetId,
         DateOnly? AssignedDate,
         DateOnly? ReturnedDate,
-        string? Notes
+        [MaxLength(250)] string? Notes
     );
     public record CreateEmployeeAssetRequest(
-       int EmployeeId,
-       int AssetId,
+       [Required] int EmployeeId,
+       [Required] int AssetId,
        DateOnly? AssignedDate,
        DateOnly? ReturnDate,
-       string? Notes
+       [MaxLength(250)] string? Notes
    );
 
 

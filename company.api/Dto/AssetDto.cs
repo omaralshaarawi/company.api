@@ -1,16 +1,18 @@
-﻿namespace company.api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace company.api.Dto
 {
     public record CreateAssetRequest(
-        int AssetTypeId,
-        string AssetName,
+       [Required] int AssetTypeId,
+        [Required][MaxLength(150)] string AssetName,
         string? SerialNumber,
         DateOnly? PurchaseDate,
         decimal? PurchaseCost
     );
     public record AssetDto(
-        int AssetId,
-        int? AssetTypeId,
-        string AssetName,
+        [Required] int AssetId,
+        [Required] int? AssetTypeId,
+        [Required][MaxLength(150)] string AssetName,
         string? SerialNumber,
         DateOnly? PurchaseDate,
         decimal? PurchaseCost,

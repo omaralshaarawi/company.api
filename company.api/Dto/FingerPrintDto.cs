@@ -1,20 +1,21 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace company.api.Dto
 {
     public record FingerprintDto(
-        int FingerprintId,
-        int EmployeeId,
-        string FingerIndex, 
-        string? DeviceId,
+       [Required] int FingerprintId,
+        [Required] int EmployeeId,
+        [Required] string FingerIndex, 
+       [MaxLength(150)] string? DeviceId,
         DateTime? EnrolledDate,
         byte? Quality
     );
     public record CreateFingerprintRequest(
-        int EmployeeId,
-        string FingerIndex,
-        string? DeviceId,
-        string  TemplateData,
+        [Required] int EmployeeId,
+        [Required] string FingerIndex,
+        [MaxLength(150)] string? DeviceId,
+        [Required] string  TemplateData,
         DateTime? EnrolledDate,
-        string? Quality
+        [MaxLength(150)] string? Quality
     );
 }

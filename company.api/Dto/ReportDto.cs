@@ -3,41 +3,41 @@
 namespace company.api.Dto
 {
     public record ReportDto(
-        int ReportId,
+       [Required] int ReportId,
         int? ReportTypeId,
-        string Title,
+        [Required] string Title,
         int? GeneratedById,
         int? RelatedEmployeeId,
         int? RelatedAssetId,
-        string? Summary, 
+       [MaxLength(250)] string? Summary, 
         DateTime? CreatedAt
     );
 
     public record ReportDtoResponse(
-        int ReportId,
+       [Required] int ReportId,
         string? employeeName,
         string? ReportTypeName,
-        string Title,
-        string? summary,
+        [Required] string Title,
+        [MaxLength(250)] string? summary,
         DateTime? CreatedAt
     );
 
     public record CreateReportRequest(
         int? ReportTypeId,
-        string Title,
+        [Required] string Title,
         int? GeneratedById,
         int? RelatedEmployeeId,
         int? RelatedAssetId,
-        string? Summary
+        [MaxLength(250)] string? Summary
     );
 
     public record UpdateReportRequest(
         int? ReportTypeId,
-        string? Title,
+        [MaxLength(250)] string? Title,
         int? GeneratedById,
         int? RelatedEmployeeId,
         int? RelatedAssetId,
-        string? Summary,
+        [MaxLength(250)] string? Summary,
         DateTime? CreatedAt
     );
 }

@@ -1,8 +1,10 @@
-﻿namespace company.api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace company.api.Dto
 {
     public class AssetTypeDto
     {
-        public int AssetTypeId { get; set; }
-        public string TypeName { get; set; } = null!;
+        [Required] public int AssetTypeId { get; set; }
+        [Required][MaxLength(150)] public string TypeName { get; set; } = null!;
     }
 }

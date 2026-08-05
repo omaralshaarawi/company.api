@@ -1,18 +1,19 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace company.api.Dto
 {
     public record CreateAttendanceLogsRequest(
-        int EmployeeId,
+        [Required]int EmployeeId,
         string? DeviceId,
-        string eventType
+        [Required] string eventType
     );
 
     public record AttendanceLogsDto(
-        int AttendanceLogId,
-        int EmployeeId,
+        [Required] int AttendanceLogId,
+        [Required] int EmployeeId,
         string? DeviceId,
-        string EventType,
+        [Required] [MaxLength(150)] string EventType,
         DateTime? EventTime
     );
 

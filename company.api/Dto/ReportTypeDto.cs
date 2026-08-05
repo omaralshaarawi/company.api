@@ -1,7 +1,10 @@
-﻿namespace company.api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+
+namespace company.api.Dto
 {
     public record ReportTypeDto(
-        int ReportTypeId,
-        string ReportTypeName
+       [Required] int ReportTypeId,
+        [Required] string ReportTypeName
     );
 }

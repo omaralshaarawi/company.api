@@ -1,5 +1,7 @@
-﻿using company.api.Dto;
+﻿using Azure.Core;
+using company.api.Dto;
 using company.api.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +12,12 @@ namespace company.api.Controllers
     public class EmployeeAssetsController : ControllerBase
     {
         private readonly IEmployeeAssetsService _EmployeeAssetsService;
+        private readonly IValidator<CreateEmployeeAssetRequest> _validator;
 
-        public EmployeeAssetsController(IEmployeeAssetsService  EmployeeAssetsService)
+        public EmployeeAssetsController(IEmployeeAssetsService  EmployeeAssetsService, IValidator<CreateEmployeeAssetRequest> validator)
         {
             _EmployeeAssetsService = EmployeeAssetsService;
+            _validator = validator;
         }
 
 
@@ -36,6 +40,11 @@ namespace company.api.Controllers
         [HttpPost]
         public async Task<ActionResult<EmployeeAssetDto>> CreateEmployeeAsset([FromBody] CreateEmployeeAssetRequest createEmployeeAssetRequest)
         {
+            var validationResult = await _validator.ValidateAsync(createEmployeeAssetRequest);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.ToDictionary());
+            }
             var createdEmployeeAsset = await _EmployeeAssetsService.CreateEmployeeAssetsAsync(createEmployeeAssetRequest);
             if (createdEmployeeAsset == null) return BadRequest("Failed to create employee asset.");
             return CreatedAtAction(nameof(GetEmployeeAsset), new { id = createdEmployeeAsset.EmployeeAssetId }, createdEmployeeAsset );

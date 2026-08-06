@@ -1,8 +1,11 @@
-﻿using company.api.Dto;
+﻿using Azure.Core;
+using company.api.Dto;
 using company.api.Models;
 using company.api.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace company.api.Controllers
 {
@@ -11,9 +14,11 @@ namespace company.api.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
-        public EmployeesController(IEmployeeService employeeService)
+        private readonly IValidator<CreateEmployeeRequest> _validator;
+        public EmployeesController(IEmployeeService employeeService, IValidator<CreateEmployeeRequest> validator)
         {
             _employeeService = employeeService;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -36,6 +41,11 @@ namespace company.api.Controllers
         [HttpPost]
         public async Task<ActionResult<EmployeeResponse>> AddEmployee(CreateEmployeeRequest req)
         {
+            var validationResult = await _validator.ValidateAsync(req);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.ToDictionary());
+            }
             var employee = await _employeeService.AddEmployee(req);
             if (employee == null)
                 return BadRequest();

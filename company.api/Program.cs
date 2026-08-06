@@ -1,6 +1,8 @@
 using company.api.Data;
 using company.api.Models;
 using company.api.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -74,6 +76,9 @@ builder.Host.UseSerilog((context, config) =>
     .WriteTo.Console()
     .WriteTo.File("Logs/company-api-.log", rollingInterval: RollingInterval.Day);
 });
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>(); // scans and registers every validator
+
 var app = builder.Build();
 
 

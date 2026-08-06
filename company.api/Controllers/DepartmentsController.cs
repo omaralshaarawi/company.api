@@ -64,8 +64,8 @@ namespace company.api.Controllers
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteDepartmentAsync(int id)
         {
-            var employeesInDepartment = await _employeeService.GetEmployeeListAsync(id, "Active");
-            if (employeesInDepartment != null && employeesInDepartment.Any())
+            var employeesInDepartment = await _employeeService.GetEmployeeListAsync(id, "Active", 1, 100);
+            if (employeesInDepartment != null && employeesInDepartment.Items.Any())
                 return BadRequest("Cannot delete department with active employees.");
             var result = await _departmentsService.DeleteDepartmentAsync(id);
             if (result == false)

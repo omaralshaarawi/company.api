@@ -22,9 +22,13 @@ namespace company.api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<EmployeeResponse>>> GetEmployees([FromQuery] int? departmentId, [FromQuery] string? status)
+        public async Task<ActionResult<List<EmployeeResponse>>> GetEmployees([FromQuery] int? departmentId, [FromQuery] string? status, [FromQuery] int pageNumber = 1,
+    [FromQuery] int pageSize = 10)
         {
-            var employees = await _employeeService.GetEmployeeListAsync(departmentId, status);
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+            if (pageSize > 100) pageSize = 100;
+            var employees = await _employeeService.GetEmployeeListAsync(departmentId, status, pageNumber, pageSize);
             return Ok(employees);
         }
 

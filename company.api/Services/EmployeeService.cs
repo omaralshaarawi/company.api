@@ -57,19 +57,29 @@ namespace company.api.Services
             e.Status, e.Department?.DepartmentName);
         }
 
-        public async Task<List<EmployeeResponse>> GetEmployeeListAsync(int? DepartmentId, string? Status)
+        public async Task<PagedResult<EmployeeResponse>> GetEmployeeListAsync(int? DepartmentId, string? Status, int pageNumber, int pageSize)
         {
             var query = _context.Employees.Include(e => e.Department).AsQueryable();
             if (DepartmentId is not null)
                 query = query.Where(e => e.DepartmentId == DepartmentId);
             if (!string.IsNullOrEmpty(Status))
                 query = query.Where(e => e.Status == Status);
+            var totalCount = await query.CountAsync();
             var result = await query
+            .OrderBy(e => e.EmployeeId) 
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
             .Select(e => new EmployeeResponse(
             e.EmployeeId, e.FullName, e.Position, e.Email, e.Phone,
             e.Status, e.Department != null ? e.Department.DepartmentName : null))
             .ToListAsync();
-            return result;
+            return new PagedResult<EmployeeResponse>
+            {
+                Items = result,
+                TotalCount = totalCount,
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
         }
 
         public async Task<EmployeeResponse?> UpdateEmployeeAsync(int id, UpdateEmployeeRequest req)

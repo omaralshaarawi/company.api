@@ -1,0 +1,48 @@
+import { Component, inject, linkedSignal, signal, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { form, FormField, FormRoot } from '@angular/forms/signals';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from '../../../core/services/employee.service';
+import { EmployeeFormModel } from '../../../core/models/employee.model';
+import { employeeSchema } from './employee-schema';
+const EMPTY_EMPLOYEE: EmployeeFormModel = {
+    fullName: '', departmentId: null, position: '', email: '', phone: '', status: 'Active'
+};
+@Component({
+    selector: 'app-employee-form',
+    standalone: true,
+    imports: [CommonModule, FormField, FormRoot],
+    templateUrl: './employee-form.component.html'
+})
+export class EmployeeFormComponent implements OnInit {
+    private employeeService = inject(EmployeeService);
+    private route = inject(ActivatedRoute);
+    private router = inject(Router);
+    employeeId: number | null = null;
+    protected readonly model = signal<EmployeeFormModel>(EMPTY_EMPLOYEE);
+    // The employee form, wired to the model signal and the schema above.
+    // The `submission` block replaces a manual (click) handler.
+    protected readonly employeeForm = form(this.model, employeeSchema, {
+        submission: {
+            action: async (f) => this.save(f().value()),
+            onInvalid: () => console.warn('Form is invalid — fix the highlighted fields.')
+        }
+    });
+    ngOnInit(): void {
+        const idParam = this.route.snapshot.paramMap.get('id');
+        if (idParam) {
+            this.employeeId = +idParam;
+            this.employeeService.getById(this.employeeId).subscribe(emp => {
+                this.model.set({ ...EMPTY_EMPLOYEE, ...emp });
+            });
+        }
+    }
+    private async save(value: EmployeeFormModel): Promise<void> {
+        if (this.employeeId) {
+            await this.employeeService.update(this.employeeId, value as any).toPromise();
+        } else {
+            await this.employeeService.create(value as any).toPromise();
+        }
+        this.router.navigate(['/employees']);
+    }
+}

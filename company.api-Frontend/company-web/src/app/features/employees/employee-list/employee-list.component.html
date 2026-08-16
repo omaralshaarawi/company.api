@@ -1,0 +1,30 @@
+<h2>Employees</h2>
+@if (loading()) {
+<p>Loading...</p>
+} @else if (error()) {
+<p class="error">{{ error() }}</p>
+} @else {
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (emp of employees(); track emp.employeeId) {
+        <tr>
+            <td>{{ emp.fullName }}</td>
+            <td>{{ emp.departmentName }}</td>
+            <td>{{ emp.status }}</td>
+            <td>
+                <a [ routerLink ]="['/ employees ', emp . employeeId , ' edit ']">Edit</a>
+                <button ( click )=" delete ( emp . employeeId )">Delete</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

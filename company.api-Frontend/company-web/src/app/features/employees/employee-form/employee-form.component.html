@@ -1,0 +1,30 @@
+<!-- employee-form.component.html -->
+<form [ formRoot ]=" employeeForm ">
+    <div class="form-group">
+        <label for="fullName">Full name</label>
+        <input id="fullName" [ formField ]=" employeeForm . fullName " />
+        @if (employeeForm.fullName().invalid()) {
+        @for (err of employeeForm.fullName().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" [ formField ]=" employeeForm . email " />
+        @if (employeeForm.email().invalid()) {
+        @for (err of employeeForm.email().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" [ formField ]=" employeeForm . status ">
+            <option value="Active">Active</option>
+            <option value="Suspended">Suspended</option>
+            <option value="Terminated">Terminated</option>
+        </select>
+    </div>
+    <button type="submit">Save</button>
+</form>

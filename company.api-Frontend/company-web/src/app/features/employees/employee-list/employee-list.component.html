@@ -20,8 +20,8 @@
             <td>{{ emp.departmentName }}</td>
             <td>{{ emp.status }}</td>
             <td>
-                <a [ routerLink ]="['/ employees ', emp . employeeId , ' edit ']">Edit</a>
-                <button ( click )=" delete ( emp . employeeId )">Delete</button>
+                <a [routerLink]="['/employees', emp.employeeId, 'edit']">Edit</a>
+                <button (click)="delete(emp.employeeId)">Delete</button>
             </td>
         </tr>
         }

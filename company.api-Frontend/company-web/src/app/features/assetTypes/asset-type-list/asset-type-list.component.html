@@ -1,0 +1,31 @@
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+    <h2>Asset Types</h2>
+    <a [routerLink]="['/asset-types','new']">Add Asset Type</a>
+    <button type="button" (click)="logout()">Logout</button>
+</div>
+@if (loading()) {
+<p>Loading...</p>
+} @else if (error()) {
+<p class="error">{{ error() }}</p>
+} @else {
+<table>
+    <thead>
+        <tr>
+            <th>Asset Type name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (assetType of assetTypes(); track assetType.assetTypeId) {
+        <tr>
+            <td>{{ assetType.typeName }}</td>
+            <td>
+                <a [routerLink]="['/asset-types', assetType.assetTypeId, 'edit']">Edit</a>
+                <button (click)="delete(assetType.assetTypeId)">Delete</button>
+                
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

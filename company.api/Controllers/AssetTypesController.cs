@@ -23,7 +23,7 @@ namespace company.api.Controllers
         public async Task<ActionResult<List<AssetTypeDto>>> GetAssetTypes()
         {
             var assetTypes = await _assetTypesService.GetAssetTypesAsync();
-            if(assetTypes!=null && assetTypes.Any()) {
+            if((assetTypes==null || !assetTypes.Any())) {
                 return NotFound("No asset types found");
             }
             return Ok(assetTypes);

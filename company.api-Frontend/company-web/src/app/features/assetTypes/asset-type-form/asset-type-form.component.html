@@ -1,0 +1,12 @@
+<form [formRoot]="assetTypeForm">
+    <div class="form-group">
+        <label for="typeName">Asset Type Name</label>
+        <input id="typeName" [formField]="assetTypeForm.typeName" />
+        @if (assetTypeForm.typeName().invalid()) {
+        @for (err of assetTypeForm.typeName().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <button type="submit">Save</button>
+</form>

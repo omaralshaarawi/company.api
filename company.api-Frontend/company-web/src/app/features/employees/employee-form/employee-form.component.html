@@ -28,10 +28,10 @@
         }
     </div>
     <div class="form-group">
-        <label for="department">Department</label>
-        <input id="department" [formField]="employeeForm.department" />
-        @if (employeeForm.department().invalid()) {
-        @for (err of employeeForm.department().errors(); track err.kind) {
+        <label for="departmentId">Department</label>
+        <input id="departmentId" [formField]="employeeForm.departmentId" />
+        @if (employeeForm.departmentId().invalid()) {
+        @for (err of employeeForm.departmentId().errors(); track err.kind) {
         <div class="error">{{ err.message }}</div>
         }
         }

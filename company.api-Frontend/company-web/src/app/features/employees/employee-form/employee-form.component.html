@@ -1,5 +1,6 @@
 <!-- employee-form.component.html -->
 <form [formRoot]="employeeForm">
+    <a [routerLink]="['/employees']">Back to employees</a>
     <div class="form-group">
         <label for="fullName">Full name</label>
         <input id="fullName" [formField]="employeeForm.fullName" />

@@ -1,0 +1,59 @@
+.history {
+	padding: 1rem;
+}
+
+.history__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	margin-bottom: 1.5rem;
+}
+
+.history__header h2 {
+	margin: 0.5rem 0 0.25rem;
+}
+
+.history__header p {
+	margin: 0;
+	color: #6b7280;
+}
+
+.history__back {
+	color: #2563eb;
+	text-decoration: none;
+}
+
+.history__back:hover {
+	text-decoration: underline;
+}
+
+.history__table-wrapper {
+	overflow-x: auto;
+}
+
+.history table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.history th,
+.history td {
+	padding: 0.75rem;
+	border-bottom: 1px solid #e5e7eb;
+	text-align: left;
+	vertical-align: top;
+}
+
+.history th {
+	color: #374151;
+	font-weight: 600;
+}
+
+.history__message {
+	padding: 1rem 0;
+	color: #6b7280;
+}
+
+.history__message--error {
+	color: #b91c1c;
+}

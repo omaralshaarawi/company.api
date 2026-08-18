@@ -1,17 +1,18 @@
 import { Component, inject, linkedSignal, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { form, FormField, FormRoot } from '@angular/forms/signals';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { EmployeeService } from '../../../core/services/employee.service';
 import { EmployeeFormModel, mapFormToCreateRequest, mapFormToUpdateRequest } from '../../../core/models/employee.model';
 import { employeeSchema } from './employee-schema';
+
 const EMPTY_EMPLOYEE: EmployeeFormModel = {
     fullName: '', nationalId: '', departmentId: null, position: '', email: '', phone: '', status: 'Active'
 };
 @Component({
     selector: 'app-employee-form',
     standalone: true,
-    imports: [CommonModule, FormField, FormRoot],
+    imports: [CommonModule, FormField, FormRoot, RouterLink],
     templateUrl: './employee-form.component.html'
 })
 export class EmployeeFormComponent implements OnInit {

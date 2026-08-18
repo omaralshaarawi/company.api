@@ -1,5 +1,6 @@
 <form [formRoot]="departmentForm">
     <div class="form-group">
+        <a  [routerLink]="['/departments']">Back to departments</a>
         <label for="departmentName">Department Name</label>
         <input id="departmentName" [formField]="departmentForm.name" />
         @if (departmentForm.name().invalid()) {

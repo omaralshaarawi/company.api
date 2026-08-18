@@ -1,0 +1,45 @@
+<form class="form" [formRoot]="assetForm">
+	<div class="form__header">
+        <a [routerLink]="['/assets']">Back to assets</a>
+		<h2>{{ assetId ? 'Edit asset' : 'Add asset' }}</h2>
+	</div>
+
+	<div class="form__body">
+		<label for="assetName">Asset name</label>
+		<input id="assetName" type="text" [formField]="assetForm.assetName" />
+		@if (assetForm.assetName().invalid()) {
+			@for (error of assetForm.assetName().errors(); track error.kind) {
+				<div class="error">{{ error.message }}</div>
+			}
+		}
+
+		<label for="assetTypeId">Asset type ID</label>
+		<input id="assetTypeId" type="number" [formField]="assetForm.assetTypeId" />
+		@if (assetForm.assetTypeId().invalid()) {
+			@for (error of assetForm.assetTypeId().errors(); track error.kind) {
+				<div class="error">{{ error.message }}</div>
+			}
+		}
+
+		<label for="serialNumber">Serial number</label>
+		<input id="serialNumber" type="text" [formField]="assetForm.serialNumber" />
+
+		<label for="purchaseDate">Purchase date</label>
+		<input id="purchaseDate" type="date" [formField]="assetForm.purchaseDate" />
+
+		<label for="purchaseCost">Purchase cost</label>
+		<input id="purchaseCost" type="number" [formField]="assetForm.purchaseCost" />
+
+		<label for="status">Status</label>
+		<select id="status" type="string" [formField]="assetForm.status">
+			<option value="">Select status</option>
+			<option value="InStock">In stock</option>
+			<option value="Assigned">Assigned</option>
+			<option value="Retired">Retired</option>
+		</select>
+	</div>
+
+	<div class="form__actions">
+		<button type="submit">Save</button>
+	</div>
+</form>

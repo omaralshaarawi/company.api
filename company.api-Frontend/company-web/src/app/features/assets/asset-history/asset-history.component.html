@@ -1,0 +1,40 @@
+<section class="history">
+	<div class="history__header">
+		<div>
+			<a class="history__back" [routerLink]="['/assets']">Back to assets</a>
+			<h2>Asset history</h2>
+			<p>Asset ID: {{ assetIdValue }}</p>
+		</div>
+	</div>
+
+	@if (isLoading) {
+		<p class="history__message">Loading history...</p>
+	} @else if (errorValue) {
+		<p class="history__message history__message--error">{{ errorValue }}</p>
+	} @else if (historyValue.length === 0) {
+		<p class="history__message">No assignment history found.</p>
+	} @else {
+		<div class="history__table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>Employee</th>
+						<th>Assigned date</th>
+						<th>Returned date</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (entry of historyValue; track entry.employeeAssetId) {
+						<tr>
+							<td>{{ entry.employeeId }}</td>
+							<td>{{ entry.assignedDate | date: 'mediumDate' }}</td>
+							<td>{{ entry.returnedDate ? (entry.returnedDate | date: 'mediumDate') : 'Still assigned' }}</td>
+							<td>{{ entry.notes || 'No notes' }}</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	}
+</section>

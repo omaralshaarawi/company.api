@@ -1,5 +1,6 @@
 <form [formRoot]="assetTypeForm">
     <div class="form-group">
+        <a [routerLink]="['/asset-types']">Back to asset types</a>
         <label for="typeName">Asset Type Name</label>
         <input id="typeName" [formField]="assetTypeForm.typeName" />
         @if (assetTypeForm.typeName().invalid()) {

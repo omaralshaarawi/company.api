@@ -5,10 +5,12 @@ import { AssetTypeService } from '../../../core/services/assetType.service';
 import { assetType } from '../../../core/models/assetTypes.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { assetTypeSchema } from './asset-type-schema';
+import { RouterLink } from '@angular/router';
+
 const EMPTY_ASSET_TYPE: assetType = { assetTypeId: 0, typeName: '' };
 @Component({
   selector: 'app-asset-type-form.component',
-  imports: [CommonModule, FormRoot, FormField],
+  imports: [CommonModule, FormRoot, FormField,RouterLink],
   templateUrl: './asset-type-form.component.html',
 })
 export class AssetTypeFormComponent implements OnInit {

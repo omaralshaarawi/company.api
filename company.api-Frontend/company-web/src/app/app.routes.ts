@@ -7,5 +7,6 @@ export const routes: Routes = [
     { path: 'departments', canActivate: [authGuard], loadChildren: () => import('./features/departments/departments.routes').then(m => m.DEPARTMENT_ROUTES) },
     { path: 'employees', canActivate: [authGuard], loadChildren: () => import('./features/employees/employees.routes').then(m => m.EMPLOYEE_ROUTES) },
     { path: 'asset-types', canActivate: [authGuard], loadChildren: () => import('./features/assetTypes/asset-types.routes').then(m => m.ASSET_TYPE_ROUTES) },
+    { path: 'assets', canActivate: [authGuard], loadChildren: () => import('./features/assets/assets.routes').then(m => m.ASSETS_ROUTES) },
     { path: '', redirectTo: 'employees', pathMatch: 'full' }
 ];

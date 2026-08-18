@@ -5,11 +5,13 @@ import { DepartmentsService } from '../../../core/services/departments.service';
 import { department } from '../../../core/models/departments.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { departmentSchema } from './department-schema';
+import { RouterLink } from '@angular/router';
+
 const EMPTY_DEPARTMENT: department = { departmentId: 0, name: '', createdAt: '' };
 
 @Component({
   selector: 'app-department-form.component',
-  imports: [CommonModule, FormRoot, FormField],
+  imports: [CommonModule, FormRoot, FormField, RouterLink],
   templateUrl: './department-form.component.html',
 })
 export class DepartmentFormComponent {

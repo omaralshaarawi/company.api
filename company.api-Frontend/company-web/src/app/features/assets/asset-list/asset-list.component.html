@@ -1,0 +1,68 @@
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+    <h2>Assets</h2>
+    <a [routerLink]="['/assets','new']">Add Asset</a>
+    <button type="button" (click)="logout()">Logout</button>
+</div>
+
+<div style="display: flex; gap: 1rem; align-items: end; margin: 1rem 0; flex-wrap: wrap;">
+    <label>
+        Status
+        <select [value]="selectedStatus ?? ''" #statusFilter (change)="applyFilters(statusFilter.value || undefined, selectedAssetTypeId)">
+            <option value="">All</option>
+            <option value="InStock">InStock</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Retired">Retired</option>
+        </select>
+    </label>
+
+    <label>
+        Asset Type
+        <select [value]="selectedAssetTypeId ?? ''" #assetTypeFilter (change)="applyFilters(selectedStatus, assetTypeFilter.value ? +assetTypeFilter.value : undefined)">
+            <option value="">All</option>
+            @for (type of assetTypes(); track type.assetTypeId) {
+                <option [value]="type.assetTypeId">{{ type.typeName }}</option>
+            }
+        </select>
+    </label>
+</div>
+
+@if (loading()) {
+<p>Loading...</p>
+} @else if (error()) {
+<p class="error">{{ error() }}</p>
+} @else {
+<table>
+    <thead>
+        <tr>
+            <th>Asset Name</th>
+            <th>Asset Type</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (asset of assets(); track asset.assetId) {
+        <tr>
+            <td>{{ asset.assetName }}</td>
+            @for (assetType of assetTypes (); track assetType.assetTypeId){
+                @if(assetType.assetTypeId == asset.assetTypeId){
+                <td>{{ assetType.typeName }}</td>
+                }
+            }
+            <td>
+                <span class="status-badge" [ngClass]="getStatusClass(asset.status)">
+                    {{ asset.status }}
+                </span>
+            </td>
+            <td>
+                <a [routerLink]="['/assets', asset.assetId, 'edit']">Edit</a>
+                <a [routerLink]="['/assets', asset.assetId, 'history']">History</a>
+                <button (click)="delete(asset.assetId)">Delete</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+

@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Employee, CreateEmployeeRequest, UpdateEmployeeRequest } from '../models/employee.model';
+import { Employee, CreateEmployeeRequest, UpdateEmployeeRequest, PagedEmployeesResponse } from '../models/employee.model';
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
     private http = inject(HttpClient);
@@ -11,7 +11,14 @@ export class EmployeeService {
         let params: Record<string, string> = {};
         if (departmentId) params['departmentId'] = departmentId.toString();
         if (status) params['status'] = status;
-        return this.http.get<Employee[]>(this.baseUrl, { params });
+        return this.http.get<Employee[] | PagedEmployeesResponse>(this.baseUrl, { params }).pipe(
+            map((response) => {
+                if (Array.isArray(response)) {
+                    return response;
+                }
+                return response?.items ?? [];
+            })
+        );
     }
     getById(id: number): Observable<Employee> {
         return this.http.get<Employee>(`${this.baseUrl}/${id}`);

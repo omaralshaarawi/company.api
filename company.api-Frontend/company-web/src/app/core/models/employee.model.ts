@@ -7,6 +7,15 @@ phone?: string;
 status: string;
 departmentName?: string;
 }
+
+export interface PagedEmployeesResponse {
+  items: Employee[];
+  totalCount: number;
+  pageNumber: number;
+  pageSize: number;
+  totalPages: number;
+}
+
 export interface CreateEmployeeRequest {
 fullName: string;
 nationalId?: string;

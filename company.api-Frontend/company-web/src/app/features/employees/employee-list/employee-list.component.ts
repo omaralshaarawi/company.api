@@ -2,6 +2,7 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { EmployeeService } from '../../../core/services/employee.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { Employee } from '../../../core/models/employee.model';
 @Component({
     selector: 'app-employee-list',
@@ -11,6 +12,7 @@ import { Employee } from '../../../core/models/employee.model';
 })
 export class EmployeeListComponent implements OnInit {
     private employeeService = inject(EmployeeService);
+    private authService = inject(AuthService);
     employees = signal<Employee[]>([]);
     loading = signal(true);
     error = signal<string | null>(null);
@@ -19,6 +21,9 @@ export class EmployeeListComponent implements OnInit {
             next: (data) => { this.employees.set(data); this.loading.set(false); },
             error: (err) => { this.error.set('Could not load employees.'); this.loading.set(false); }
         });
+    }
+    logout(): void {
+        this.authService.logout();
     }
     delete(id: number): void {
         if (!confirm('Delete this employee?')) return;

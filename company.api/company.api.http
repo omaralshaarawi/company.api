@@ -1,7 +1,5 @@
 @company.api_HostAddress = http://localhost:5219
 
-GET {{company.api_HostAddress}}/weatherforecast/
-Accept: application/json
 
 ###
 
@@ -15,3 +13,9 @@ Accept: application/json
 
 ###
 
+POST {{company.api_HostAddress}}/api/login
+Content-Type: application/json
+{
+  "username": "admin",
+  "password": "admin123"
+}

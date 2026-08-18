@@ -19,6 +19,24 @@
         }
     </div>
     <div class="form-group">
+        <label for="nationalId">National ID</label>
+        <input id="nationalId" [formField]="employeeForm.nationalId" />
+        @if (employeeForm.nationalId().invalid()) {
+        @for (err of employeeForm.nationalId().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <div class="form-group">
+        <label for="department">Department</label>
+        <input id="department" [formField]="employeeForm.department" />
+        @if (employeeForm.department().invalid()) {
+        @for (err of employeeForm.department().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <div class="form-group">
         <label for="status">Status</label>
         <select id="status" [formField]="employeeForm.status">
             <option value="Active">Active</option>

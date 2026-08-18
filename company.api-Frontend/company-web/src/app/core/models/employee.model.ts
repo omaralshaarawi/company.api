@@ -19,7 +19,7 @@ export interface PagedEmployeesResponse {
 export interface CreateEmployeeRequest {
 fullName: string;
 nationalId?: string;
-departmentId?: number;
+departmentId?: number | null;
 position?: string;
 email?: string;
 phone?: string;
@@ -32,9 +32,34 @@ status: string;
 // has a concrete value, never undefined (see the note below the form component).
 export interface EmployeeFormModel {
 fullName: string;
+nationalId: string;
 departmentId: number | null;
 position: string;
 email: string;
 phone: string;
 status: string;
+}
+
+// Mapping functions between form model and API request models
+export function mapFormToCreateRequest(form: EmployeeFormModel): CreateEmployeeRequest {
+  return {
+    fullName: form.fullName,
+    nationalId: form.nationalId,
+    departmentId: form.departmentId,
+    position: form.position,
+    email: form.email,
+    phone: form.phone
+  };
+}
+
+export function mapFormToUpdateRequest(form: EmployeeFormModel): UpdateEmployeeRequest {
+  return {
+    fullName: form.fullName,
+    nationalId: form.nationalId,
+    departmentId: form.departmentId,
+    position: form.position,
+    email: form.email,
+    phone: form.phone,
+    status: form.status
+  };
 }

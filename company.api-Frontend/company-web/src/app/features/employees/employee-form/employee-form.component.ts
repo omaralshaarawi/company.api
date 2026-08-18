@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { form, FormField, FormRoot } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../../core/services/employee.service';
-import { EmployeeFormModel } from '../../../core/models/employee.model';
+import { EmployeeFormModel, mapFormToCreateRequest, mapFormToUpdateRequest } from '../../../core/models/employee.model';
 import { employeeSchema } from './employee-schema';
 const EMPTY_EMPLOYEE: EmployeeFormModel = {
-    fullName: '', departmentId: null, position: '', email: '', phone: '', status: 'Active'
+    fullName: '', nationalId: '', departmentId: null, position: '', email: '', phone: '', status: 'Active'
 };
 @Component({
     selector: 'app-employee-form',
@@ -39,9 +39,9 @@ export class EmployeeFormComponent implements OnInit {
     }
     private async save(value: EmployeeFormModel): Promise<void> {
         if (this.employeeId) {
-            await this.employeeService.update(this.employeeId, value as any).toPromise();
+            await this.employeeService.update(this.employeeId, mapFormToUpdateRequest(value)).toPromise();
         } else {
-            await this.employeeService.create(value as any).toPromise();
+            await this.employeeService.create(mapFormToCreateRequest(value)).toPromise();
         }
         this.router.navigate(['/employees']);
     }

@@ -1,0 +1,33 @@
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+    <h2>Departments</h2>
+    <a [routerLink]="['/departments','new']">Add Department</a>
+    <button type="button" (click)="logout()">Logout</button>
+</div>
+@if (loading()) {
+<p>Loading...</p>
+} @else if (error()) {
+<p class="error">{{ error() }}</p>
+} @else {
+<table>
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>Created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (dept of departments(); track dept.departmentId) {
+        <tr>
+            <td>{{ dept.name }}</td>
+            <td>{{ dept.createdAt | date }}</td>
+            <td>
+                <a [routerLink]="['/departments', dept.departmentId, 'edit']">Edit</a>
+                <button (click)="delete(dept.departmentId)">Delete</button>
+                
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

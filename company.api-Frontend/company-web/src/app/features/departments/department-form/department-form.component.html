@@ -1,0 +1,21 @@
+<form [formRoot]="departmentForm">
+    <div class="form-group">
+        <label for="departmentName">Department Name</label>
+        <input id="departmentName" [formField]="departmentForm.name" />
+        @if (departmentForm.name().invalid()) {
+        @for (err of departmentForm.name().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <div class="form-group">
+        <label for="createdAt">Created Date</label>
+        <input id="createdAt" [formField]="departmentForm.createdAt" type="date" />
+        @if (departmentForm.createdAt().invalid()) {
+        @for (err of departmentForm.createdAt().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+        }
+        }
+    </div>
+    <button type="submit">Save</button>
+</form>

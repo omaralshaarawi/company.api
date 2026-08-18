@@ -12,8 +12,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -69,6 +67,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 builder.Services.AddAuthorization();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
 builder.Host.UseSerilog((context, config) =>
 {
     config
@@ -77,23 +87,21 @@ builder.Host.UseSerilog((context, config) =>
     .WriteTo.File("Logs/company-api-.log", rollingInterval: RollingInterval.Day);
 });
 
-builder.Services.AddValidatorsFromAssemblyContaining<Program>(); // scans and registers every validator
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 
+app.UseHttpsRedirection();
 
-app.UseAuthentication(); 
-app.UseAuthorization();
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
@@ -116,6 +124,5 @@ using (var scope = app.Services.CreateScope())
         context.SaveChanges();
     }
 }
-
 
 app.Run();

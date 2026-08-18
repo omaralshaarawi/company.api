@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api")]
 public class AuthController : ControllerBase
 {
     private readonly CompanyContext _db;
@@ -21,7 +21,7 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login(LoginRequest req)
     {
         var user = await _db.Users.FirstOrDefaultAsync(u => u.Username == req.Username);
-        if (!BCrypt.Net.BCrypt.Verify(req.Password, user.PasswordHash))
+        if (user == null || !BCrypt.Net.BCrypt.Verify(req.Password, user.PasswordHash))
             return Unauthorized("Invalid username or password.");
         var token = _tokenService.CreateToken(user);
         return Ok(new { token });

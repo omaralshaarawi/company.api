@@ -1,0 +1,49 @@
+<div class="page-header">
+	<div>
+		<a [routerLink]="['/employees']">Back to employees</a>
+		<h2>Employee assets</h2>
+	</div>
+	<a class="add-link" [routerLink]="['/employees', employeeId, 'assets', 'new']">Add asset</a>
+</div>
+
+@if (loading()) {
+	<p>Loading assets...</p>
+} @else if (error()) {
+	<p class="error">{{ error() }}</p>
+} @else if (employeesAssets().length === 0) {
+	<p>This employee has no assigned assets.</p>
+} @else {
+	@if (returnError()) {
+		<p class="error" role="alert">{{ returnError() }}</p>
+	}
+	<table>
+		<thead>
+			<tr>
+				<th>Asset</th>
+				<th>Serial number</th>
+				<th>Assigned</th>
+				<th>Returned</th>
+				<th>Notes</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (assignment of employeesAssets(); track assignment.employeeAssetId) {
+				<tr>
+					<td>{{ getAsset(assignment.assetId)?.assetName ?? ('Asset #' + assignment.assetId) }}</td>
+					<td>{{ getAsset(assignment.assetId)?.serialNumber ?? '-' }}</td>
+					<td>{{ assignment.assignedDate | date:'mediumDate' }}</td>
+					<td>{{ assignment.returnedDate ? (assignment.returnedDate | date:'mediumDate') : 'Assigned' }}</td>
+					<td>{{ assignment.notes || '-' }}</td>
+					<td>
+						@if (!assignment.returnedDate) {
+							<button type="button" (click)="returnAsset(assignment)" [disabled]="returningId() === assignment.employeeAssetId">
+								{{ returningId() === assignment.employeeAssetId ? 'Returning...' : 'Return' }}
+							</button>
+						}
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}

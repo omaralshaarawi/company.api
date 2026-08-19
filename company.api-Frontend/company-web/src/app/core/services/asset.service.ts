@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { asset } from '../models/assets.model';
 import { environment } from '../../environments/environment';
-import { employeeAsset } from '../models/employeeAsset.model';
+import { EmployeeAsset } from '../models/employeeAsset.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -28,7 +28,7 @@ export class AssetService {
     delete(id: number): Observable<void> {
         return this.http.delete<void>(`${this.baseUrl}/${id}`);
     }
-    getAssetHistory(id: number): Observable<employeeAsset[]> {
-        return this.http.get<employeeAsset[]>(`${this.baseUrl}/${id}/history`);
+    getAssetHistory(id: number): Observable<EmployeeAsset[]> {
+        return this.http.get<EmployeeAsset[]>(`${this.baseUrl}/${id}/history`);
     }
 }

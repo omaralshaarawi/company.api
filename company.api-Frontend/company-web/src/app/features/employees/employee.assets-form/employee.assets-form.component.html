@@ -1,0 +1,33 @@
+<form [formRoot]="employeeAssetForm">
+	<a [routerLink]="['/employees', employeeId, 'assets']">Back to employee assets</a>
+
+	@if (loading()) {
+		<p>Loading available assets...</p>
+	} @else {
+		<div class="form-group">
+			<label for="assetId">Asset</label>
+			<select id="assetId" [formField]="employeeAssetForm.assetId">
+				<option value="">Select an available asset</option>
+				@for (item of availableAssets(); track item.assetId) {
+					<option [value]="item.assetId">{{ item.assetName }} ({{ item.serialNumber }})</option>
+				}
+			</select>
+			@if (employeeAssetForm.assetId().invalid()) {
+				@for (err of employeeAssetForm.assetId().errors(); track err.kind) {
+					<div class="error">{{ err.message }}</div>
+				}
+			}
+		</div>
+
+		<div class="form-group">
+			<label for="notes">Notes</label>
+			<textarea id="notes" rows="3" [formField]="employeeAssetForm.notes"></textarea>
+		</div>
+
+		@if (error()) {
+			<p class="error">{{ error() }}</p>
+		}
+
+		<button type="submit">{{ saving() ? 'Assigning...' : 'Assign asset' }}</button>
+	}
+</form>

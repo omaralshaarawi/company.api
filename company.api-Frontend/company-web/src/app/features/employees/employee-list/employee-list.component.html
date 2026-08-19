@@ -25,6 +25,7 @@
             <td>{{ emp.status }}</td>
             <td>
                 <a [routerLink]="['/employees', emp.employeeId, 'edit']">Edit</a>
+                <a [routerLink]="['/employees', emp.employeeId, 'assets']">Assets</a>
                 <button (click)="delete(emp.employeeId)">Delete</button>
             </td>
         </tr>

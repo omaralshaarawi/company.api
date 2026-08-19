@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AssetService } from '../../../core/services/asset.service';
-import { employeeAsset } from '../../../core/models/employeeAsset.model';
+import { EmployeeAsset } from '../../../core/models/employeeAsset.model';
 
 @Component({
 	selector: 'app-asset-history',
@@ -16,7 +16,7 @@ export class AssetHistoryComponent implements OnInit {
 	private readonly assetService = inject(AssetService);
 
 	assetId = signal<number | null>(null);
-	history = signal<employeeAsset[]>([]);
+	history = signal<EmployeeAsset[]>([]);
 	loading = signal(false);
 	error = signal('');
 
@@ -24,7 +24,7 @@ export class AssetHistoryComponent implements OnInit {
 		return this.assetId();
 	}
 
-	get historyValue(): employeeAsset[] {
+	get historyValue(): EmployeeAsset[] {
 		return this.history();
 	}
 

@@ -91,6 +91,7 @@ namespace company.api.Services
                 employeeAsset.Notes = Notes;
             }
             employeeAsset.ReturnedDate = DateOnly.FromDateTime(DateTime.Now);
+            await _context.SaveChangesAsync();
             return new EmployeeAssetDto(
                 employeeAsset.EmployeeAssetId,
                 employeeAsset.EmployeeId,

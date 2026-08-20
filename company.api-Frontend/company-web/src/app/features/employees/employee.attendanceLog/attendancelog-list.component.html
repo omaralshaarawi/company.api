@@ -1,0 +1,62 @@
+<section class="attendance-page">
+	<div class="page-header">
+		<div>
+			<a [routerLink]="['/employees']">Back to employees</a>
+			<h2>Attendance logs</h2>
+		</div>
+	</div>
+
+	<form class="filters" (submit)="$event.preventDefault(); loadLogs()">
+		<label>
+			From
+			<input type="date" [value]="from()" (input)="from.set($any($event.target).value)" />
+		</label>
+		<label>
+			To
+			<input type="date" [value]="to()" (input)="to.set($any($event.target).value)" />
+		</label>
+		<button type="submit">Filter</button>
+	</form>
+
+	@if (loading()) {
+		<p>Loading attendance logs...</p>
+	} @else if (error()) {
+		<p class="error" role="alert">{{ error() }}</p>
+		} @else if (logs().length === 0) {
+		<p>No attendance logs found for this date range.</p>
+	} @else {
+		<table>
+			<thead>
+				<tr>
+					<th>Attendance log ID</th>
+					<th>Employee ID</th>
+					<th>Device ID</th>
+					<th>Event type</th>
+					<th>Event time</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (log of logs(); track log.attendanceLogId) {
+					<tr>
+						<td>{{ log.attendanceLogId }}</td>
+						<td>{{ log.employeeId }}</td>
+						<td>{{ log.deviceId }}</td>
+						<td>
+							<span
+								class="event-badge"
+								[class.check-in-event]="log.eventType.toLowerCase() === 'checkin'"
+								[class.check-out-event]="log.eventType.toLowerCase() === 'checkout'"
+								[attr.aria-label]="log.eventType">
+								<span aria-hidden="true">
+									{{ log.eventType.toLowerCase() === 'checkin' ? '&#10003;' : '&#10138;' }}
+								</span>
+								{{ log.eventType }}
+							</span>
+						</td>
+						<td>{{ log.eventTime | date:'medium' }}</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+</section>

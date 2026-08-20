@@ -27,6 +27,7 @@
                 <a [routerLink]="['/employees', emp.employeeId, 'edit']">Edit</a>
                 <a [routerLink]="['/employees', emp.employeeId, 'assets']">Assets</a>
                 <a [routerLink]="['/employees', emp.employeeId, 'fingerprint','new']">Add Fingerprint</a>
+                <a [routerLink]="['/employees', emp.employeeId, 'attendance']">Attendance</a>
                 <button (click)="delete(emp.employeeId)">Delete</button>
             </td>
         </tr>

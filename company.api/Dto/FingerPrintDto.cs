@@ -14,7 +14,7 @@ namespace company.api.Dto
         [Required] int EmployeeId,
         [Required] string FingerIndex,
         [MaxLength(150)] string? DeviceId,
-        [Required] string  TemplateData,
+        string  TemplateData,
         DateTime? EnrolledDate,
         [MaxLength(150)] string? Quality
     );

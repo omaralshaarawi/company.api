@@ -53,22 +53,39 @@ namespace company.api.Services
             return true;
         }
 
-        public async Task<List<FingerprintDto>?> GetFingerprintAsyncByEmployeeId(int employeeId)
+        public async Task<List<FingerprintDto>?> GetFingerprintsAsync(int? employeeId)
         {
-            var employee = await _context.Employees.FindAsync(employeeId);
-            if (employee == null) return null;
-            var fingerprints = await _context.Fingerprints.Where(f => f.EmployeeId == employeeId).ToListAsync();
-            if (fingerprints == null) return null;
-            return fingerprints.Select(f => new FingerprintDto(
-                f.FingerprintId,
-                f.EmployeeId,
-                f.FingerIndex,
-                f.DeviceId,
-                f.EnrolledDate,
-                f.Quality
-            )).ToList();
-        }
+            if (employeeId == null)
+            {
+                return await _context.Fingerprints
+                    .Select(f => new FingerprintDto(
+                        f.FingerprintId,
+                        f.EmployeeId,
+                        f.FingerIndex,
+                        f.DeviceId,
+                        f.EnrolledDate,
+                        f.Quality
+                    ))
+                    .ToListAsync();
+            }
+            else
+            {
+                var employee = await _context.Employees.FindAsync(employeeId);
+                if (employee == null) return null;
 
+                return await _context.Fingerprints
+                    .Where(f => f.EmployeeId == employeeId)
+                    .Select(f => new FingerprintDto(
+                        f.FingerprintId,
+                        f.EmployeeId,
+                        f.FingerIndex,
+                        f.DeviceId,
+                        f.EnrolledDate,
+                        f.Quality
+                    ))
+                    .ToListAsync();
+            }
+        }
         public async Task<FingerprintDto?> GetFingerprintAsyncById(int fingerprintId)
         {
             var fingerprint = await _context.Fingerprints.FindAsync(fingerprintId);

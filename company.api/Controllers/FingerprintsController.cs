@@ -19,9 +19,9 @@ namespace company.api.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<List<FingerprintDto>>> GetFingerprintByEmployeeId([FromQuery] int employeeId)
+        public async Task<ActionResult<List<FingerprintDto>>> GetFingerprints([FromQuery] int? employeeId)
         {
-            var fingerprint = await _fingerprintsService.GetFingerprintAsyncByEmployeeId(employeeId);
+            var fingerprint = await _fingerprintsService.GetFingerprintsAsync(employeeId);
             if(fingerprint == null) return NotFound("Fingerprint or employee not found");
             return Ok(fingerprint);
         }
@@ -31,7 +31,7 @@ namespace company.api.Controllers
         {
             var fingerprint = await _fingerprintsService.CreateFingerprintAsync(req);
             if (fingerprint == null) return BadRequest("Failed to create fingerprint. Employee may not exist.");
-            return CreatedAtAction(nameof(GetFingerprintByEmployeeId), new { id = fingerprint.EmployeeId }, fingerprint);
+            return CreatedAtAction(nameof(GetFingerprintById), new { id = fingerprint.EmployeeId }, fingerprint);
         }
 
         [HttpGet("{id:int}")]

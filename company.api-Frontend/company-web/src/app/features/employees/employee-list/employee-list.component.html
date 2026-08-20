@@ -26,8 +26,41 @@
             <td>
                 <a [routerLink]="['/employees', emp.employeeId, 'edit']">Edit</a>
                 <a [routerLink]="['/employees', emp.employeeId, 'assets']">Assets</a>
+                <a [routerLink]="['/employees', emp.employeeId, 'fingerprint','new']">Add Fingerprint</a>
                 <button (click)="delete(emp.employeeId)">Delete</button>
             </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+    <h2>Fingerprints</h2>
+</div>
+@if (loadingFingerprints()) {
+<p>Loading...</p>
+} @else if (errorFingerprints()) {
+<p class="error">{{ errorFingerprints() }}</p>
+} @else {
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Finger Index</th>
+            <th>Device ID</th>
+            <th>EnrolledDate</th>
+            <th>Quality</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (fng of fingerprints(); track fng.fingerprintId) {
+        <tr>
+            <td>{{ employeeDictionary().get(fng.employeeId) ?? 'Unknown Employee' }}</td>
+            <td>{{ fng.fingerIndex }}</td>
+            <td>{{ fng.deviceId }}</td>
+            <td>{{ fng.enrolledDate }}</td>
+            <td>{{ fng.quality }}</td>
         </tr>
         }
     </tbody>

@@ -1,0 +1,56 @@
+<form [formRoot]="employeeFingerprintForm">
+	<div class="page-header">
+		<div>
+			<a [routerLink]="['/employees']">Back to employees</a>
+			<h2>Add fingerprint</h2>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="fingerIndex">Finger index</label>
+		<select id="fingerIndex" [formField]="employeeFingerprintForm.fingerIndex">
+			<option value="">Select a finger</option>
+			@for (finger of fingerIndexOptions; track finger) {
+				<option [value]="finger">{{ finger }}</option>
+			}
+		</select>
+		@if (employeeFingerprintForm.fingerIndex().invalid()) {
+			@for (err of employeeFingerprintForm.fingerIndex().errors(); track err.kind) {
+				<div class="error">{{ err.message }}</div>
+			}
+		}
+	</div>
+
+	<div class="form-group">
+		<label for="deviceId">Device ID</label>
+		<input id="deviceId" type="text"  [formField]="employeeFingerprintForm.deviceId" />
+	</div>
+
+	<div class="form-group">
+		<label for="enrolledDate">Enrolled date</label>
+		<input id="enrolledDate" type="date" [formField]="employeeFingerprintForm.enrolledDate" />
+	</div>
+
+	<div class="form-group">
+		<label for="templateData">Template data</label>
+		<textarea id="templateData" rows="6" [formField]="employeeFingerprintForm.templateData"></textarea>
+		@if (employeeFingerprintForm.templateData().invalid()) {
+			@for (err of employeeFingerprintForm.templateData().errors(); track err.kind) {
+				<div class="error">{{ err.message }}</div>
+			}
+		}
+	</div>
+
+	<div class="form-group">
+		<label for="quality">Quality</label>
+		<input id="quality" type="text"  [formField]="employeeFingerprintForm.quality" />
+	</div>
+
+	@if (error()) {
+		<p class="error" role="alert">{{ error() }}</p>
+	}
+
+	<button type="submit" [disabled]="saving()">
+		{{ saving() ? 'Saving...' : 'Save fingerprint' }}
+	</button>
+</form>

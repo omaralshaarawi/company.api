@@ -9,8 +9,8 @@ import { AttendancelogListComponent } from './employee.attendanceLog/attendancel
 import { EmployeeFormReactiveComponent } from './employee-form-reactive/employee-form-reactive.component';
 export const EMPLOYEE_ROUTES: Routes = [
     { path: '', component: EmployeeListComponent },
-    { path: 'new', component: EmployeeFormReactiveComponent },
-    { path: ':id/edit', component: EmployeeFormReactiveComponent },
+    { path: 'new', component: EmployeeFormComponent },
+    { path: ':id/edit', component: EmployeeFormComponent },
     { path: ':id/assets', component: EmployeeAssetsComponent },
     { path: ':id/assets/new', component: EmployeeAssetsFormComponent },
     { path: ':id/fingerprint/new', component: EmployeeFingerprintFormComponent },

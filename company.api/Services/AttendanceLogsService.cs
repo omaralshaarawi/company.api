@@ -1,6 +1,8 @@
 ﻿using company.api.Data;
 using company.api.Dto;
+using company.api.Hubs;
 using company.api.Models;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace company.api.Services
@@ -8,10 +10,11 @@ namespace company.api.Services
     public class AttendanceLogsService : IAttendanceLogsService
     {
         private readonly CompanyContext _context;
-
-        public AttendanceLogsService(CompanyContext context)
+        private readonly IHubContext<NotificationsHub> _hub;
+        public AttendanceLogsService(CompanyContext context, IHubContext<NotificationsHub> hub)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _hub = hub;
         }
         public async Task<AttendanceLogsDto?> CreateAttendanceLogAsync(CreateAttendanceLogsRequest createAttendanceLogRequest)
         {
@@ -28,6 +31,12 @@ namespace company.api.Services
             };
             _context.AttendanceLogs.Add(attendanceLog);
             await _context.SaveChangesAsync();
+            await _hub.Clients.All.SendAsync("AttendanceLogged", new
+            {
+                employeeId = attendanceLog.EmployeeId,
+                eventType = attendanceLog.EventType,
+                eventTime = attendanceLog.EventTime
+            });
             return new AttendanceLogsDto(
                 attendanceLog.LogId,
                 attendanceLog.EmployeeId,

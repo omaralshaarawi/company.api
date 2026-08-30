@@ -15,6 +15,14 @@ namespace company.api.Validators
             RuleFor(x => x.Email)
             .EmailAddress().WithMessage("Enter a valid email address.")
             .When(x => !string.IsNullOrEmpty(x.Email));
+            RuleFor(x => x.NationalId)
+            .NotEmpty().WithMessage("National ID is required.")
+            .MaximumLength(20);
+            RuleFor(x => x.NationalId)
+            .MustAsync(async (nationalId, ct) =>
+                nationalId is not null && !await db.Employees.AnyAsync(e => e.NationalId == nationalId, ct))
+            .WithMessage("National ID must be unique.")
+            .When(x => !string.IsNullOrEmpty(x.NationalId));
             RuleFor(x => x.DepartmentId)
             .MustAsync(async (id, ct) =>
             id is null || await db.Departments.AnyAsync(d => d.DepartmentId == id, ct))

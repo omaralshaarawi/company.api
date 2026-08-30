@@ -1,10 +1,12 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit,effect,computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { EmployeeAssetService } from '../../../core/services/employeeAsset.service';
 import { AssetService } from '../../../core/services/asset.service';
 import { EmployeeAsset } from '../../../core/models/employeeAsset.model';
 import { asset } from '../../../core/models/assets.model';
+import { NotificationService } from '../../../core/services/notification.service'
+import * as signalR from '@microsoft/signalr';
 @Component({
   selector: 'app-employee.assets.component',
   imports: [CommonModule, RouterLink],
@@ -13,8 +15,10 @@ import { asset } from '../../../core/models/assets.model';
 })
 export class EmployeeAssetsComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
-    private employeeAssetService = inject(EmployeeAssetService);
+  private employeeAssetService = inject(EmployeeAssetService);
   private assetService = inject(AssetService);
+  protected notificationService = inject(NotificationService);
+
   employeeId = 0;
   employeesAssets = signal<EmployeeAsset[]>([]);
   assets = signal<asset[]>([]);
@@ -22,7 +26,36 @@ export class EmployeeAssetsComponent implements OnInit {
     error = signal<string | null>(null);
     returnError = signal<string | null>(null);
     returningId = signal<number | null>(null);
+    protected readonly liveStatus = computed(() => {
+    switch (this.notificationService.connectionState()) {
+      case signalR.HubConnectionState.Connected:
+        return { label: 'Live', cssClass: 'status-live' };
+      case signalR.HubConnectionState.Reconnecting:
+        return { label: 'Reconnecting…', cssClass: 'status-reconnecting' };
+      case signalR.HubConnectionState.Connecting:
+        return { label: 'Connecting…', cssClass: 'status-reconnecting' };
+      default:
+        return { label: 'Offline', cssClass: 'status-offline' };
+    }
+  });
 
+
+    constructor() {
+        // Runs automatically whenever lastAssetAssigned changes
+        effect(() => {
+            const event = this.notificationService.lastAssetAssigned();
+            if (event) {
+                this.employeeAssetService.getAll().subscribe(data => this.employeesAssets.set(data));
+            }
+        });
+
+        effect(() => {
+            const event = this.notificationService.lastAssetReturned();
+            if (event) {
+                this.employeeAssetService.getAll().subscribe(data => this.employeesAssets.set(data));
+            }
+        });
+    }
     ngOnInit(): void {
     this.employeeId = Number(this.route.snapshot.paramMap.get('id'));
     this.employeeAssetService.getAll(this.employeeId).subscribe({

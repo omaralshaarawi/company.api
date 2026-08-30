@@ -1,10 +1,10 @@
-import { Component, inject, signal, OnInit, computed } from '@angular/core';
+import { Component, inject, signal, OnInit, computed,effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { EmployeeService } from '../../../core/services/employee.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { Employee } from '../../../core/models/employee.model';
-import {fingerprint,createFingerprintRequest} from '../../../core/models/fingerprints.model';
+import { fingerprint, createFingerprintRequest } from '../../../core/models/fingerprints.model';
 import { FingerprintsService } from '../../../core/services/fingerpints.serivce';
 @Component({
     selector: 'app-employee-list',
@@ -22,12 +22,13 @@ export class EmployeeListComponent implements OnInit {
     error = signal<string | null>(null);
     loadingFingerprints = signal(true);
     errorFingerprints = signal<string | null>(null);
+    
     employeeDictionary = computed(() => {
-    const map = new Map<number, string>();
-    for (const emp of this.employees()) {
-      map.set(emp.employeeId, emp.fullName);
-    }
-    return map;
+        const map = new Map<number, string>();
+        for (const emp of this.employees()) {
+            map.set(emp.employeeId, emp.fullName);
+        }
+        return map;
     });
     ngOnInit(): void {
         this.employeeService.getAll().subscribe({
@@ -35,8 +36,8 @@ export class EmployeeListComponent implements OnInit {
             error: (err) => { this.error.set('Could not load employees.'); this.loading.set(false); }
         });
         this.fingerprintService.getAll().subscribe({
-            next:(data) => { this.fingerprints.set(data); this.loadingFingerprints.set(false); },
-            error:(err) => {this.errorFingerprints.set('Could not load fingeprints.'); this.loadingFingerprints.set(false); }
+            next: (data) => { this.fingerprints.set(data); this.loadingFingerprints.set(false); },
+            error: (err) => { this.errorFingerprints.set('Could not load fingeprints.'); this.loadingFingerprints.set(false); }
         });
     }
     logout(): void {

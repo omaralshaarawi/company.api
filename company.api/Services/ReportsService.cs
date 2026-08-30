@@ -1,6 +1,8 @@
 ﻿using company.api.Data;
 using company.api.Dto;
+using company.api.Hubs;
 using company.api.Models;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -13,13 +15,16 @@ namespace company.api.Services
         private readonly IAssetsService _assetsService;
         private readonly IAssetTypesService _assetTypesService;
         private readonly IEmployeeAssetsService _employeeAssetsService;
-        public ReportsService(CompanyContext context, IAttendanceLogsService attendanceLogsService, IAssetsService assetsService, IAssetTypesService assetTypesService,IEmployeeAssetsService employeeAssetsService)
+        private readonly IHubContext<NotificationsHub> _hub;
+
+        public ReportsService(CompanyContext context, IAttendanceLogsService attendanceLogsService, IAssetsService assetsService, IAssetTypesService assetTypesService,IEmployeeAssetsService employeeAssetsService, IHubContext<NotificationsHub> hub)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _attendanceLogsService = attendanceLogsService ?? throw new ArgumentNullException(nameof(attendanceLogsService));
             _assetsService = assetsService ?? throw new ArgumentNullException(nameof(assetsService));
             _assetTypesService = assetTypesService ?? throw new ArgumentNullException(nameof(assetTypesService));
             _employeeAssetsService = employeeAssetsService ?? throw new ArgumentException(nameof(employeeAssetsService));
+            _hub = hub;
         }
         public async Task<ReportDto?> CreateReportAsync(CreateReportRequest createReportRequest)
         {
@@ -37,7 +42,7 @@ namespace company.api.Services
             }
             if (reportType == null) return null;
 
-            if (reportType.ReportTypeId == 1)
+            if (reportType.ReportTypeId == 1003)
             {
                     DateTime toDate = DateTime.Today;
                     DateTime fromDate = toDate.AddDays(-30);
@@ -59,7 +64,13 @@ namespace company.api.Services
                     };
                     _context.Reports.Add(report);
                     await _context.SaveChangesAsync();
-                    return new ReportDto(
+                await _hub.Clients.All.SendAsync("ReportGenerated", new
+                {
+                    reportId = report.ReportId,
+                    title = report.Title,
+                    relatedEmployeeId = report.RelatedEmployeeId
+                });
+                return new ReportDto(
 
                         report.ReportId,
                         report.ReportTypeId,
@@ -71,7 +82,7 @@ namespace company.api.Services
                         report.GeneratedDate
                    );
                 }
-                else if(reportType.ReportTypeId == 2)
+                else if(reportType.ReportTypeId == 1004)
                 {
                     var assets = await _assetsService.GetAssetsAsync(null,null);
                     var assetsInStockOrAssigned = assets.Count(a => a.Status == "Instock" || a.Status == "Assigned");
@@ -96,7 +107,13 @@ namespace company.api.Services
                     };
                     _context.Reports.Add(report);
                     await _context.SaveChangesAsync();
-                    return new ReportDto(
+                await _hub.Clients.All.SendAsync("ReportGenerated", new
+                {
+                    reportId = report.ReportId,
+                    title = report.Title,
+                    relatedEmployeeId = report.RelatedEmployeeId
+                });
+                return new ReportDto(
 
                         report.ReportId,
                         report.ReportTypeId,
@@ -131,17 +148,23 @@ namespace company.api.Services
                     };
                     _context.Reports.Add(report);
                     await _context.SaveChangesAsync();
+                    await _hub.Clients.All.SendAsync("ReportGenerated", new
+                    {
+                        reportId = report.ReportId,
+                        title = report.Title,
+                        relatedEmployeeId = report.RelatedEmployeeId
+                    });
                     return new ReportDto(
 
-                        report.ReportId,
-                        report.ReportTypeId,
-                        report.Title,
-                        report.GeneratedById,
-                        report.RelatedEmployeeId,
-                        report.RelatedAssetId,
-                        report.Summary,
-                        report.GeneratedDate
-                   );
+                            report.ReportId,
+                            report.ReportTypeId,
+                            report.Title,
+                            report.GeneratedById,
+                            report.RelatedEmployeeId,
+                            report.RelatedAssetId,
+                            report.Summary,
+                            report.GeneratedDate
+                       );
                 }
         }
         public async Task<bool> DeleteReportAsync(int reportId)

@@ -1,11 +1,13 @@
 <div class="page-header">
-	<div>
-		<a [routerLink]="['/employees']">Back to employees</a>
-		<h2>Employee assets</h2>
-	</div>
-	<a class="add-link" [routerLink]="['/employees', employeeId, 'assets', 'new']">Add asset</a>
+    <div>
+        <a [routerLink]="['/employees']">Back to employees</a>
+        <h2>Employee assets</h2>
+    </div>
+    <span class="live-indicator" [class]="liveStatus().cssClass">
+        ● {{ liveStatus().label }}
+    </span>
+    <a class="add-link" [routerLink]="['/employees', employeeId, 'assets', 'new']">Add asset</a>
 </div>
-
 @if (loading()) {
 	<p>Loading assets...</p>
 } @else if (error()) {

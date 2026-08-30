@@ -3,6 +3,7 @@ using company.api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace company.api.Controllers
 {
@@ -41,9 +42,22 @@ namespace company.api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ReportDto>> CreateReport([FromBody] CreateReportRequest req)
         {
-            var createdReport = await _reportsService.CreateReportAsync(req);
+            int? genBy = req.GeneratedById;
+            if (genBy == null)
+            {
+                var idClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(idClaim) || !int.TryParse(idClaim, out var parsedId))
+                    return Unauthorized(); 
+
+                genBy = parsedId;
+            }
+
+            var requestToCreate = req with { GeneratedById = genBy };
+
+            var createdReport = await _reportsService.CreateReportAsync(requestToCreate);
             if (createdReport == null)
             {
                 return BadRequest("Failed to create report.");

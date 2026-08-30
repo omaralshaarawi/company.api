@@ -27,8 +27,7 @@ namespace company.api.Dto
         [Required] string Title,
         int? GeneratedById,
         int? RelatedEmployeeId,
-        int? RelatedAssetId,
-        [MaxLength(250)] string? Summary
+        int? RelatedAssetId
     );
 
     public record UpdateReportRequest(

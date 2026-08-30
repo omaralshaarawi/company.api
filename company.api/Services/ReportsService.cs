@@ -9,22 +9,25 @@ namespace company.api.Services
     public class ReportsService : IReportsService
     {
         private readonly CompanyContext _context;
-
-        public ReportsService(CompanyContext context)
+        private readonly IAttendanceLogsService _attendanceLogsService;
+        private readonly IAssetsService _assetsService;
+        private readonly IAssetTypesService _assetTypesService;
+        private readonly IEmployeeAssetsService _employeeAssetsService;
+        public ReportsService(CompanyContext context, IAttendanceLogsService attendanceLogsService, IAssetsService assetsService, IAssetTypesService assetTypesService,IEmployeeAssetsService employeeAssetsService)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _attendanceLogsService = attendanceLogsService ?? throw new ArgumentNullException(nameof(attendanceLogsService));
+            _assetsService = assetsService ?? throw new ArgumentNullException(nameof(assetsService));
+            _assetTypesService = assetTypesService ?? throw new ArgumentNullException(nameof(assetTypesService));
+            _employeeAssetsService = employeeAssetsService ?? throw new ArgumentException(nameof(employeeAssetsService));
         }
         public async Task<ReportDto?> CreateReportAsync(CreateReportRequest createReportRequest)
         {
             var reportType = await _context.ReportTypes.FindAsync(createReportRequest.ReportTypeId);
-            if(createReportRequest.GeneratedById != null)
-            {
-                var generatedBy = await _context.Employees.FindAsync(createReportRequest.GeneratedById);
-                if (generatedBy == null) return null;
-            }
+            Employee? relatedEmployee = null;
             if (createReportRequest.RelatedEmployeeId != null)
             {
-                var relatedEmployee = await _context.Employees.FindAsync(createReportRequest.RelatedEmployeeId);
+                relatedEmployee = await _context.Employees.FindAsync(createReportRequest.RelatedEmployeeId);
                 if (relatedEmployee == null) return null;
             }
             if (createReportRequest.RelatedAssetId != null)
@@ -33,31 +36,114 @@ namespace company.api.Services
                 if (relatedAsset == null) return null;
             }
             if (reportType == null) return null;
-            var report = new Report
+
+            if (reportType.ReportTypeId == 1)
             {
-                ReportTypeId = createReportRequest.ReportTypeId,
-                Title = createReportRequest.Title,
-                GeneratedById = createReportRequest.GeneratedById,
-                RelatedEmployeeId = createReportRequest.RelatedEmployeeId,
-                RelatedAssetId = createReportRequest.RelatedAssetId,
-                Summary = createReportRequest.Summary,
-                GeneratedDate = DateTime.UtcNow
-            };
-            _context.Reports.Add(report);
-            await _context.SaveChangesAsync();
-            return new ReportDto(
+                    DateTime toDate = DateTime.Today;
+                    DateTime fromDate = toDate.AddDays(-30);
+                    var attendanceLogs = await _attendanceLogsService.GetAttendanceLogsAsync(null, fromDate, toDate);
+                    var numberOfEmployees = attendanceLogs.Select(log => log.EmployeeId).Distinct().Count();
+                    var numberOfCheckIns = attendanceLogs.Count(log => log.EventType == "CheckIn");
+                    var numberOfCheckOuts = attendanceLogs.Count(log => log.EventType == "CheckOut");
+                    var summary = "Covers all attendance events recorded across the Engineering and Operations departments for last 30 days." + numberOfEmployees + " Employees  logged a total of" + numberOfCheckIns + " check-ins and " + numberOfCheckOuts + " check-outs,So " + (numberOfCheckOuts - numberOfCheckIns) + " unresolved missing check-outs were found in this period.";
+                    var report = new Report
+                    {
+                        ReportTypeId = createReportRequest.ReportTypeId,
+                        Title = createReportRequest.Title,
+                        GeneratedById = createReportRequest.GeneratedById,
+                        RelatedEmployeeId = createReportRequest.RelatedEmployeeId,
+                        RelatedAssetId = createReportRequest.RelatedAssetId,
+                        Summary = summary,
+                        GeneratedDate = DateTime.UtcNow
+                        
+                    };
+                    _context.Reports.Add(report);
+                    await _context.SaveChangesAsync();
+                    return new ReportDto(
 
-                report.ReportId,
-                report.ReportTypeId,
-                report.Title,
-                report.GeneratedById,
-                report.RelatedEmployeeId,
-                report.RelatedAssetId,
-                report.Summary,
-                report.GeneratedDate
-           );
+                        report.ReportId,
+                        report.ReportTypeId,
+                        report.Title,
+                        report.GeneratedById,
+                        report.RelatedEmployeeId,
+                        report.RelatedAssetId,
+                        report.Summary,
+                        report.GeneratedDate
+                   );
+                }
+                else if(reportType.ReportTypeId == 2)
+                {
+                    var assets = await _assetsService.GetAssetsAsync(null,null);
+                    var assetsInStockOrAssigned = assets.Count(a => a.Status == "Instock" || a.Status == "Assigned");
+                    var summary = "Quarterly audit of " + assets.Count+ ", ";
+                    var assetTypes = await _assetTypesService.GetAssetTypesAsync();
+                    foreach(AssetTypeDto assetType in assetTypes)
+                    {
+                        var count= assets.Count(a => a.AssetTypeId == assetType.AssetTypeId);
+                        summary += count + " " + assetType.TypeName + ", ";
+                    }
+                    summary += assetsInStockOrAssigned + " Assets InStock or Assigned.";
+                    var report = new Report
+                    {
+                         ReportTypeId = createReportRequest.ReportTypeId,
+                         Title = createReportRequest.Title,
+                         GeneratedById = createReportRequest.GeneratedById,
+                         RelatedEmployeeId = createReportRequest.RelatedEmployeeId,
+                         RelatedAssetId = createReportRequest.RelatedAssetId,
+                         Summary = summary,
+                         GeneratedDate = DateTime.UtcNow
+
+                    };
+                    _context.Reports.Add(report);
+                    await _context.SaveChangesAsync();
+                    return new ReportDto(
+
+                        report.ReportId,
+                        report.ReportTypeId,
+                        report.Title,
+                        report.GeneratedById,
+                        report.RelatedEmployeeId,
+                        report.RelatedAssetId,
+                        report.Summary,
+                        report.GeneratedDate
+                   );
+                }
+                else
+                {
+                    if (relatedEmployee == null) return null;
+                    DateTime toDate = DateTime.Today.AddDays(1);
+                    DateTime fromDate = toDate.AddDays(-30);
+                    var attendanceLogs = await _attendanceLogsService.GetAttendanceLogsAsync(createReportRequest.RelatedEmployeeId, fromDate, toDate);
+                    var assets = await _assetsService.GetAssetsAsync(null, null);
+                    var countAssigned = assets.Count(a => a.Status == "Assigned");
+                    var returned = await _employeeAssetsService.GetEmployeeAssetsAsync(createReportRequest.RelatedEmployeeId, null, false);
+                    var summary = "Activity report,In the last 30 days "+ (attendanceLogs?.Count ?? 0) + " attendance events, "+ countAssigned+" Assets Currently assigned and "+ returned.Count + " Completed asset return.";
+                    var report = new Report
+                    {
+                        ReportTypeId = createReportRequest.ReportTypeId,
+                        Title = createReportRequest.Title,
+                        GeneratedById = createReportRequest.GeneratedById,
+                        RelatedEmployeeId = createReportRequest.RelatedEmployeeId,
+                        RelatedAssetId = createReportRequest.RelatedAssetId,
+                        Summary = summary,
+                        GeneratedDate = DateTime.UtcNow
+
+                    };
+                    _context.Reports.Add(report);
+                    await _context.SaveChangesAsync();
+                    return new ReportDto(
+
+                        report.ReportId,
+                        report.ReportTypeId,
+                        report.Title,
+                        report.GeneratedById,
+                        report.RelatedEmployeeId,
+                        report.RelatedAssetId,
+                        report.Summary,
+                        report.GeneratedDate
+                   );
+                }
         }
-
         public async Task<bool> DeleteReportAsync(int reportId)
         {
             var report = await _context.Reports.FindAsync(reportId);

@@ -1,0 +1,105 @@
+.report-details-page {
+  color: #1f2a37;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem 0;
+}
+
+.report-card {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #d7dde3;
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(32, 52, 71, 0.06);
+  max-width: 980px;
+  padding: 2rem;
+}
+
+.report-header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-link {
+  color: #3c5368;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  text-decoration: none;
+}
+
+.report-header h1 {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  margin: 0;
+}
+
+.type-badge {
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.5rem 0.9rem;
+}
+
+.type-attendance {
+  background: #dff6ee;
+  color: #1d7c5d;
+}
+
+.meta-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  margin-bottom: 2rem;
+}
+
+.label {
+  color: #66798a;
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.meta-grid p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.summary-box {
+  background: #f4f6f8;
+  border: 1px solid #dfe6ec;
+  border-radius: 0.9rem;
+  padding: 1.25rem 1.4rem;
+}
+
+.summary-box h2 {
+  margin: 0 0 0.875rem;
+}
+
+.summary-box p {
+  color: #33465a;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.error {
+  color: #b42318;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .report-card {
+    padding: 1.25rem;
+  }
+
+  .report-header,
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

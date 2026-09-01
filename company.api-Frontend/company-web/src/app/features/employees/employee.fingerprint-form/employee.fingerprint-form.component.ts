@@ -6,13 +6,18 @@ import { FingerprintsService } from '../../../core/services/fingerpints.serivce'
 import { createFingerprintRequest } from '../../../core/models/fingerprints.model';
 import { employeeFingerprintFormSchema } from './employee.fingerprint-schema';
 
-type FingerprintFormModel = Omit<createFingerprintRequest, 'quality'> & { quality: string };
+type FingerprintFormModel = {
+  employeeId: number;
+  fingerIndex: string;
+  deviceId: string;
+  enrolledDate: string | null;
+  quality: string;
+};
 
 const EMPTY_EMPLOYEE_FINGERPRINT: FingerprintFormModel = {
   employeeId: 0,
   fingerIndex: '',
   deviceId: '',
-  templateData: '',
   enrolledDate: null,
   quality: ''
 };
@@ -61,7 +66,8 @@ export class EmployeeFingerprintFormComponent {
       await this.fingerprintService.create({
         ...value,
         employeeId: this.employeeId,
-        quality: value.quality.trim() || null
+        quality: value.quality.trim() || null,
+        templateData: '' 
       }).toPromise();
       await this.router.navigate(['/employees']);
     } catch {

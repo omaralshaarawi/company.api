@@ -3,7 +3,6 @@ export interface fingerprint {
     employeeId : number;
     fingerIndex : string;
     deviceId: string;
-    templateData: string;
     enrolledDate : string | null;
     quality: string | null;
 }
@@ -12,9 +11,9 @@ export interface createFingerprintRequest {
     employeeId : number;
     fingerIndex : string;
     deviceId: string;
-    templateData: string;
     enrolledDate : string | null;
     quality : string | null;
+    templateData: string;
 }
 
 

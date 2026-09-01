@@ -95,7 +95,10 @@ namespace company.api.Services
             }
             if (active.HasValue)
             {
-                query = query.Where(ea => ea.ReturnedDate == null);
+                if(active.Value)
+                    query = query.Where(ea => ea.ReturnedDate == null);
+                else
+                    query = query.Where(ea => ea.ReturnedDate != null);
             }
             var employeeAssets = await query.ToListAsync();
             return employeeAssets.Select(ea => new EmployeeAssetDto(

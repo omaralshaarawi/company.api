@@ -30,7 +30,12 @@
     </div>
     <div class="form-group">
         <label for="departmentId">Department</label>
-        <input id="departmentId" [formField]="employeeForm.departmentId" />
+        <select id="departmentId" [formField]="employeeForm.departmentId">
+            <option value="">Select a department</option>
+            @for (dept of departments(); track dept.departmentId) {
+                <option [value]="String(dept.departmentId)">{{ dept.name }}</option>
+            }
+        </select>
         @if (employeeForm.departmentId().invalid()) {
         @for (err of employeeForm.departmentId().errors(); track err.kind) {
         <div class="error">{{ err.message }}</div>

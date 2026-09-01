@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { form, FormField, FormRoot } from '@angular/forms/signals';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { EmployeeService } from '../../../core/services/employee.service';
+import { DepartmentsService } from '../../../core/services/departments.service';
 import { EmployeeFormModel, mapFormToCreateRequest, mapFormToUpdateRequest } from '../../../core/models/employee.model';
+import { department } from '../../../core/models/departments.model';
 import { employeeSchema } from './employee-schema';
 
 const EMPTY_EMPLOYEE: EmployeeFormModel = {
-    fullName: '', nationalId: '', departmentId: null, position: '', email: '', phone: '', status: 'Active'
+    fullName: '', nationalId: '', departmentId: '', position: '', email: '', phone: '', status: 'Active'
 };
 @Component({
     selector: 'app-employee-form',
@@ -17,9 +19,12 @@ const EMPTY_EMPLOYEE: EmployeeFormModel = {
 })
 export class EmployeeFormComponent implements OnInit {
     private employeeService = inject(EmployeeService);
+    private departmentsService = inject(DepartmentsService);
     private route = inject(ActivatedRoute);
     private router = inject(Router);
     employeeId: number | null = null;
+    protected readonly String = String;
+    protected readonly departments = signal<department[]>([]);
     protected readonly model = signal<EmployeeFormModel>(EMPTY_EMPLOYEE);
     // The employee form, wired to the model signal and the schema above.
     // The `submission` block replaces a manual (click) handler.
@@ -30,11 +35,18 @@ export class EmployeeFormComponent implements OnInit {
         }
     });
     ngOnInit(): void {
+        this.departmentsService.getALL().subscribe(deps => {
+            this.departments.set(deps);
+        });
         const idParam = this.route.snapshot.paramMap.get('id');
         if (idParam) {
             this.employeeId = +idParam;
-            this.employeeService.getById(this.employeeId).subscribe(emp => {
-                this.model.set({ ...EMPTY_EMPLOYEE, ...emp });
+            this.employeeService.getById(this.employeeId).subscribe((emp: any) => {
+                this.model.set({ 
+                    ...EMPTY_EMPLOYEE, 
+                    ...emp,
+                    departmentId: emp.departmentId ? String(emp.departmentId) : ''
+                });
             });
         }
     }

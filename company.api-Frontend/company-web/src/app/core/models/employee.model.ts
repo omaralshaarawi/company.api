@@ -33,7 +33,7 @@ status: string;
 export interface EmployeeFormModel {
 fullName: string;
 nationalId: string;
-departmentId: number | null;
+departmentId: string;
 position: string;
 email: string;
 phone: string;
@@ -45,7 +45,7 @@ export function mapFormToCreateRequest(form: EmployeeFormModel): CreateEmployeeR
   return {
     fullName: form.fullName,
     nationalId: form.nationalId,
-    departmentId: form.departmentId,
+    departmentId: form.departmentId && form.departmentId !== '' ? Number(form.departmentId) : null,
     position: form.position,
     email: form.email,
     phone: form.phone
@@ -56,7 +56,7 @@ export function mapFormToUpdateRequest(form: EmployeeFormModel): UpdateEmployeeR
   return {
     fullName: form.fullName,
     nationalId: form.nationalId,
-    departmentId: form.departmentId,
+    departmentId: form.departmentId && form.departmentId !== '' ? Number(form.departmentId) : null,
     position: form.position,
     email: form.email,
     phone: form.phone,

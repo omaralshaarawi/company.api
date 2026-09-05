@@ -1,2 +1,32 @@
 
-<router-outlet />
+@if (isLoggedIn()) {
+	<div class="app-shell">
+		<aside class="sidebar">
+			<a class="brand" routerLink="/employees">
+				<span class="brand-mark">C</span>
+				<span>Company<span class="brand-accent">.ops</span></span>
+			</a>
+			<div class="sidebar-label">Workspace</div>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a routerLink="/employees" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><span class="nav-icon">01</span><span>Employees</span></a>
+				<a routerLink="/departments" routerLinkActive="active"><span class="nav-icon">02</span><span>Departments</span></a>
+				<a routerLink="/assets" routerLinkActive="active"><span class="nav-icon">03</span><span>Assets</span></a>
+				<a routerLink="/asset-types" routerLinkActive="active"><span class="nav-icon">04</span><span>Asset types</span></a>
+				<a routerLink="/reports" routerLinkActive="active"><span class="nav-icon">05</span><span>Reports</span></a>
+			</nav>
+			<div class="sidebar-footer">
+				<div class="status-dot"><span></span> System connected</div>
+				<button type="button" class="logout-button" (click)="logout()">Sign out <span>↗</span></button>
+			</div>
+		</aside>
+		<main class="main-content">
+			<header class="topbar">
+				<div><span class="eyebrow">Operations console</span><p class="topbar-title">People, equipment, and activity</p></div>
+				<div class="topbar-date">CONTROL CENTER <span></span> 2026</div>
+			</header>
+			<div class="content-wrap"><router-outlet /></div>
+		</main>
+	</div>
+} @else {
+	<router-outlet />
+}

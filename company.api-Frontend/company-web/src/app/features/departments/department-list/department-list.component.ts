@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DepartmentsService } from '../../../core/services/departments.service';
 import { department } from '../../../core/models/departments.model';
-import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-department-list.component',
@@ -12,7 +11,6 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class DepartmentListComponent {
   private departmentService = inject(DepartmentsService);
-  private authService = inject(AuthService);
   departments = signal<department[]>([]);
   loading = signal(true);
   error = signal<string | null>(null);
@@ -27,9 +25,6 @@ export class DepartmentListComponent {
         this.loading.set(false);
       }
     });
-  }
-  logout(): void {
-    this.authService.logout();
   }
   delete(id: number): void {
     if (!confirm('Delete this department?')) return;

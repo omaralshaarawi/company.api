@@ -2,28 +2,6 @@
   padding: 1rem 0;
 }
 
-.reports-page table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.reports-page th,
-.reports-page td {
-  border-bottom: 1px solid #d9e1e8;
-  padding: 0.75rem 1rem;
-  text-align: left;
-}
-
-.reports-page th {
-  background: #2f75a5;
-  color: #fff;
-  font-weight: 700;
-}
-
-.reports-page tbody tr:nth-child(even) {
-  background: #f3f7fa;
-}
-
 .page-header {
   align-items: center;
   display: flex;

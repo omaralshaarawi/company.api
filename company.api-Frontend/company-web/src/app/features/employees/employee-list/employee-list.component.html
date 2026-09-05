@@ -1,7 +1,6 @@
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-    <h2>Employees</h2>
-    <a [routerLink]="['/employees','new']">Add Employee</a>
-    <button type="button" (click)="logout()">Logout</button>
+<div class="page-header">
+    <div><span class="eyebrow">People</span><h2>Employees</h2></div>
+    <a class="add-link" [routerLink]="['/employees','new']">Add employee <span>↗</span></a>
 </div>
 @if (loading()) {
 <p>Loading...</p>
@@ -14,6 +13,7 @@
             <th>Name</th>
             <th>Department</th>
             <th>Status</th>
+            <th>Fingerprint</th>
             <th></th>
         </tr>
     </thead>
@@ -24,9 +24,11 @@
             <td>{{ emp.departmentName }}</td>
             <td>{{ emp.status }}</td>
             <td>
+                <a class="fingerprint-button" [routerLink]="['/employees', emp.employeeId, 'fingerprint','new']">Add fingerprint <span>↗</span></a>
+            </td>
+            <td class="action-links">
                 <a [routerLink]="['/employees', emp.employeeId, 'edit']">Edit</a>
                 <a [routerLink]="['/employees', emp.employeeId, 'assets']">Assets</a>
-                <a [routerLink]="['/employees', emp.employeeId, 'fingerprint','new']">Add Fingerprint</a>
                 <a [routerLink]="['/employees', emp.employeeId, 'attendance']">Attendance</a>
                 <button (click)="delete(emp.employeeId)">Delete</button>
             </td>
@@ -35,7 +37,7 @@
     </tbody>
 </table>
 }
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+<div class="fingerprints-heading" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
     <h2>Fingerprints</h2>
 </div>
 @if (loadingFingerprints()) {

@@ -39,15 +39,6 @@
       </select>
     </label>
 
-    <label class="filter-label">
-      <span class="filter-title">Asset</span>
-      <select [value]="selectedAssetName()" (change)="onAssetFilterChange($any($event.target).value)">
-        <option value="">All assets</option>
-        @for (asset of assets(); track asset.assetId) {
-          <option [value]="asset.assetName">{{ asset.assetName }}</option>
-        }
-      </select>
-    </label>
   </div>
 
   @if (loading()) {

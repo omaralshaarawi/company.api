@@ -1,7 +1,6 @@
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-    <h2>Departments</h2>
-    <a [routerLink]="['/departments','new']">Add Department</a>
-    <button type="button" (click)="logout()">Logout</button>
+<div class="page-header">
+    <div><span class="eyebrow">Organization</span><h2>Departments</h2></div>
+    <a class="add-link" [routerLink]="['/departments','new']">Add department <span>↗</span></a>
 </div>
 @if (loading()) {
 <p>Loading...</p>

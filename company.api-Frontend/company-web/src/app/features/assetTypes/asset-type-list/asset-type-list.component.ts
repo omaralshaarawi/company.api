@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AssetTypeService } from '../../../core/services/assetType.service';
 import { assetType } from '../../../core/models/assetTypes.model';
-import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-asset-type-list.component',
@@ -12,7 +11,6 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class AssetTypeListComponent implements OnInit {
   private assetTypeService = inject(AssetTypeService);
-  private authService = inject(AuthService);
   assetTypes = signal<assetType[]>([]);
   loading = signal(true);
   error = signal<string | null>(null);
@@ -30,9 +28,6 @@ export class AssetTypeListComponent implements OnInit {
     });
   }
 
-  logout(): void {
-    this.authService.logout();
-  }
 
   delete(id: number): void {
     if (!confirm('Delete this asset type?')) return;

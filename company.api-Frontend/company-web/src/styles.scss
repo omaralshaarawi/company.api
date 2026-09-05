@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root { --ink:#14201c; --muted:#6c7972; --line:#dce4de; --paper:#f7f8f4; --surface:#fff; --pine:#0e493d; --leaf:#b7d943; --orange:#ed744a; --shadow:0 18px 40px rgba(20,32,28,.07); }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: 'Manrope', sans-serif; font-size: 14px; }
+a { color: var(--pine); font-weight: 700; text-decoration: none; }
+a:hover { color: var(--orange); }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, p { margin-top: 0; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); letter-spacing: -.04em; line-height: 1.05; }
+table { background: var(--surface); border: 1px solid var(--line); border-collapse: separate; border-radius: 14px; border-spacing: 0; box-shadow: var(--shadow); overflow: hidden; width: 100%; }
+th { background: #edf2ec; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: .08em; padding: 14px 18px; text-align: left; text-transform: uppercase; }
+td { border-top: 1px solid var(--line); padding: 16px 18px; vertical-align: middle; }
+tbody tr { transition: background .18s ease; }
+tbody tr:hover { background: #f3f7ef; }
+td a { margin-right: 16px; }
+.action-links { min-width: 360px; }
+.action-links a { display: inline-block; margin-bottom: 5px; }
+.fingerprint-button { background: var(--leaf); border-radius: 7px; color: var(--pine); display: inline-block; font-size: 12px; font-weight: 800; padding: 9px 11px; white-space: nowrap; }
+.fingerprint-button:hover { background: var(--pine); color: white; }
+td button, .form__actions button, form > button, .form-group + button { background: var(--pine); border: 0; border-radius: 7px; color: white; font-weight: 800; padding: 10px 16px; }
+td button:hover, .form__actions button:hover, form > button:hover { background: #176451; }
+input, select { background: white; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); min-height: 42px; outline: none; padding: 10px 12px; }
+input:focus, select:focus { border-color: var(--pine); box-shadow: 0 0 0 3px rgba(14,73,61,.1); }
+label { color: var(--muted); display: grid; font-size: 12px; font-weight: 700; gap: 7px; }
+.error { background: #fff1ee; border-left: 3px solid var(--orange); color: #aa432b; margin: 12px 0; padding: 10px 12px; }
+.page-header { align-items: flex-start; display: flex; gap: 20px; justify-content: space-between; margin-bottom: 28px; }
+.fingerprints-heading { margin-top: 28px; }
+.page-header h2 { margin: 7px 0 0; }
+.page-header > a:last-child, .add-link, .generate-btn { background: var(--pine); border-radius: 7px; color: white; padding: 12px 17px; }
+.page-header > a:last-child:hover, .add-link:hover, .generate-btn:hover { background: var(--orange); color: white; }
+.page-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 16px; }
+.live-indicator { background: #edf8dd; color: #4f7518; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+.live-indicator.status-reconnecting { background: #fff4dc; color: #9a6812; }
+.live-indicator.status-offline { background: #fff1ee; color: #aa432b; }
+.filters { align-items: end; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 22px; padding: 18px; }
+.filter-label { min-width: 180px; }
+.filter-title { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.status-badge, .live-indicator, .event-badge, .report-badge { border-radius: 99px; display: inline-block; font-size: 11px; font-weight: 800; padding: 5px 9px; }
+.live-indicator { background: #edf8dd; color: #4f7518; }
+.status-badge { background: #edf2ec; color: var(--pine); }
+.form, form:has(.form-group) { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); margin: 0 auto; max-width: 620px; padding: 28px; }
+.form__header { margin-bottom: 24px; }
+.form__header h2 { margin: 12px 0 0; }
+.form__body, .form-group { display: grid; gap: 10px; margin-bottom: 20px; }
+.form__actions { display: flex; justify-content: flex-end; }
+.form > .form-group label, form:has(.form-group) label { margin-top: 6px; }
+.login-page { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(360px, 520px); min-height: 100vh; }
+.login-intro { background: var(--pine); color: white; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(30px, 6vw, 86px); }
+.login-brand { font-size: 19px; font-weight: 800; letter-spacing: -.04em; }
+.login-brand > span:first-child { background: var(--leaf); border-radius: 7px; color: var(--pine); display: inline-flex; height: 32px; justify-content: center; margin-right: 9px; padding-top: 4px; width: 32px; }
+.login-brand > span:last-child { color: var(--leaf); }
+.login-intro .eyebrow { margin-top: auto; padding-top: 20vh; }
+.login-intro h1 { font-size: clamp(2.4rem, 5vw, 5rem); letter-spacing: -.06em; line-height: .98; margin: 18px 0; max-width: 680px; }
+.login-copy { color: #b9cec3; font-size: 16px; line-height: 1.7; max-width: 420px; }
+.login-mark { color: var(--leaf); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; }
+.login-mark span { color: #8eada0; margin-left: 12px; }
+.login-panel { align-items: center; background: var(--paper); display: flex; flex-direction: column; justify-content: center; padding: 40px; }
+.login-heading { margin-bottom: 22px; max-width: 440px; width: 100%; }
+.login-heading h2 { margin: 9px 0; }
+.login-heading p:last-child { color: var(--muted); }
+.login-panel form.login-form { background: transparent; border: 0; box-shadow: none; margin: 0; max-width: 440px; padding: 0; width: 100%; }
+.login-form button { align-items: center; background: var(--pine); border: 0; border-radius: 7px; color: white; display: flex; font-weight: 800; justify-content: space-between; margin-top: 6px; padding: 13px 15px; width: 100%; }
+.login-form button:hover { background: var(--orange); }
+@media (max-width:700px) { .login-page { display:block; } .login-intro { min-height: 40vh; padding: 30px; } .login-intro .eyebrow { padding-top: 56px; } .login-intro h1 { font-size: 2.7rem; } .login-panel { min-height: 60vh; padding: 32px 24px; } }
+@media (max-width:800px) { table { display:block; overflow-x:auto; white-space:nowrap; } .page-header { align-items:stretch; flex-direction:column; } .page-header > a:last-child, .add-link, .generate-btn { align-self:flex-start; } }

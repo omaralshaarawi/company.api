@@ -1,11 +1,12 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, computed, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AssetService } from '../../../core/services/asset.service';
 import { asset } from '../../../core/models/assets.model';
-import { AuthService } from '../../../core/services/auth.service';
 import { AssetTypeService } from '../../../core/services/assetType.service';
 import { assetType } from '../../../core/models/assetTypes.model';
+import { NotificationService } from '../../../core/services/notification.service';
+import * as signalR from '@microsoft/signalr';
 
 @Component({
   selector: 'app-asset-list.component',
@@ -16,13 +17,25 @@ import { assetType } from '../../../core/models/assetTypes.model';
 export class AssetListComponent implements OnInit {
   private assetService = inject(AssetService);
   private assetTypeService = inject(AssetTypeService);
-  private authService = inject(AuthService);
+  private notificationService = inject(NotificationService);
   error = signal<string | null>(null);
   loading = signal(true);
   assets = signal<asset[]>([]);
   assetTypes = signal<assetType[]>([]);
   selectedStatus?: string;
   selectedAssetTypeId?: number;
+  protected readonly liveStatus = computed(() => {
+    switch (this.notificationService.connectionState()) {
+      case signalR.HubConnectionState.Connected:
+        return { label: 'Live', cssClass: 'status-live' };
+      case signalR.HubConnectionState.Reconnecting:
+        return { label: 'Reconnecting...', cssClass: 'status-reconnecting' };
+      case signalR.HubConnectionState.Connecting:
+        return { label: 'Connecting...', cssClass: 'status-reconnecting' };
+      default:
+        return { label: 'Offline', cssClass: 'status-offline' };
+    }
+  });
 
   ngOnInit(): void {
     this.loadAssetTypes();
@@ -79,10 +92,6 @@ export class AssetListComponent implements OnInit {
     });
   }
 
-  logout(): void {
-    this.authService.logout();
-  }
-  
   getAssetHistory(id:number): void{
     this.assetService.getAssetHistory(id);
   }

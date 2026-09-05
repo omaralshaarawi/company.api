@@ -5,8 +5,6 @@ import { ReportService } from '../../../core/services/report.service';
 import { createReport, report } from '../../../core/models/reports.model';
 import { EmployeeService } from '../../../core/services/employee.service';
 import { Employee } from '../../../core/models/employee.model';
-import { AssetService } from '../../../core/services/asset.service';
-import { asset } from '../../../core/models/assets.model';
 import { NotificationService } from '../../../core/services/notification.service'
 
 @Component({
@@ -19,11 +17,9 @@ export class ReportListComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly reportService = inject(ReportService);
   private readonly employeeService = inject(EmployeeService);
-  private readonly assetService = inject(AssetService);
   private notificationService = inject(NotificationService);
 
   protected readonly employeeId = signal<number | null>(null);
-  protected readonly assetId = signal<number | null>(null);
   protected readonly reportTypeId = signal<number | null>(null);
   protected readonly reports = signal<report[]>([]);
   protected readonly loading = signal(true);
@@ -32,9 +28,7 @@ export class ReportListComponent implements OnInit {
   protected readonly search = signal('');
   protected readonly selectedReportType = signal<string>('');
   protected readonly selectedEmployeeName = signal<string>('');
-  protected readonly selectedAssetName = signal<string>('');
   protected readonly employees = signal<Employee[]>([]);
-  protected readonly assets = signal<asset[]>([]);
 
   protected readonly showGenerateModal = signal(false);
   protected readonly generateType = signal<string>('Attendance Summary');
@@ -71,7 +65,6 @@ export class ReportListComponent implements OnInit {
     }
 
     this.loadEmployees();
-    this.loadAssets();
     this.loadReports();
   }
 
@@ -79,13 +72,6 @@ export class ReportListComponent implements OnInit {
     this.employeeService.getAll().subscribe({
       next: employees => this.employees.set(employees),
       error: () => this.employees.set([])
-    });
-  }
-
-  protected loadAssets(): void {
-    this.assetService.getALL().subscribe({
-      next: assets => this.assets.set(assets),
-      error: () => this.assets.set([])
     });
   }
 
@@ -97,13 +83,9 @@ export class ReportListComponent implements OnInit {
       ? this.employees().find(employee => employee.fullName === this.selectedEmployeeName())?.employeeId
       : this.employeeId() ?? undefined;
 
-    const assetId = this.selectedAssetName()
-      ? this.assets().find(asset => asset.assetName === this.selectedAssetName())?.assetId
-      : this.assetId() ?? undefined;
-
     const reportTypeId = this.getReportTypeId(this.selectedReportType());
 
-    this.reportService.getAll(employeeId, assetId, reportTypeId).subscribe({
+    this.reportService.getAll(employeeId, undefined, reportTypeId).subscribe({
       next: reports => {
         this.reports.set(reports);
         this.loading.set(false);
@@ -122,11 +104,6 @@ export class ReportListComponent implements OnInit {
 
   protected onEmployeeFilterChange(value: string): void {
     this.selectedEmployeeName.set(value);
-    this.loadReports();
-  }
-
-  protected onAssetFilterChange(value: string): void {
-    this.selectedAssetName.set(value);
     this.loadReports();
   }
 

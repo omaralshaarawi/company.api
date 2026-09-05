@@ -2,7 +2,6 @@ import { Component, inject, signal, OnInit, computed,effect } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { EmployeeService } from '../../../core/services/employee.service';
-import { AuthService } from '../../../core/services/auth.service';
 import { Employee } from '../../../core/models/employee.model';
 import { fingerprint, createFingerprintRequest } from '../../../core/models/fingerprints.model';
 import { FingerprintsService } from '../../../core/services/fingerpints.serivce';
@@ -14,7 +13,6 @@ import { FingerprintsService } from '../../../core/services/fingerpints.serivce'
 })
 export class EmployeeListComponent implements OnInit {
     private employeeService = inject(EmployeeService);
-    private authService = inject(AuthService);
     private fingerprintService = inject(FingerprintsService);
     fingerprints = signal<fingerprint[]>([]);
     employees = signal<Employee[]>([]);
@@ -39,9 +37,6 @@ export class EmployeeListComponent implements OnInit {
             next: (data) => { this.fingerprints.set(data); this.loadingFingerprints.set(false); },
             error: (err) => { this.errorFingerprints.set('Could not load fingeprints.'); this.loadingFingerprints.set(false); }
         });
-    }
-    logout(): void {
-        this.authService.logout();
     }
     delete(id: number): void {
         if (!confirm('Delete this employee?')) return;

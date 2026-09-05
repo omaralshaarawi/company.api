@@ -1,7 +1,12 @@
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-    <h2>Assets</h2>
-    <a [routerLink]="['/assets','new']">Add Asset</a>
-    <button type="button" (click)="logout()">Logout</button>
+<div class="page-header">
+    <div>
+        <span class="eyebrow">Inventory</span>
+        <h2>Assets</h2>
+    </div>
+    <div class="page-actions">
+        <span class="live-indicator" [class]="liveStatus().cssClass">● {{ liveStatus().label }}</span>
+        <a class="add-link" [routerLink]="['/assets','new']">Add asset <span>↗</span></a>
+    </div>
 </div>
 
 <div style="display: flex; gap: 1rem; align-items: end; margin: 1rem 0; flex-wrap: wrap;">

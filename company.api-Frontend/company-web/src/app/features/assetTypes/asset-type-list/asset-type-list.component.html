@@ -1,7 +1,6 @@
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-    <h2>Asset Types</h2>
-    <a [routerLink]="['/asset-types','new']">Add Asset Type</a>
-    <button type="button" (click)="logout()">Logout</button>
+<div class="page-header">
+    <div><span class="eyebrow">Inventory</span><h2>Asset types</h2></div>
+    <a class="add-link" [routerLink]="['/asset-types','new']">Add asset type <span>↗</span></a>
 </div>
 @if (loading()) {
 <p>Loading...</p>

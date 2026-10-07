@@ -1,8 +1,8 @@
 <!-- employee-form.component.html -->
 <form [formRoot]="employeeForm">
-    <a [routerLink]="['/employees']">Back to employees</a>
+    <a [routerLink]="['/employees']" i18n>Back to employees</a>
     <div class="form-group">
-        <label for="fullName">Full name</label>
+        <label for="fullName" i18n>Full name</label>
         <input id="fullName" [formField]="employeeForm.fullName" />
         @if (employeeForm.fullName().invalid()) {
         @for (err of employeeForm.fullName().errors(); track err.kind) {
@@ -11,7 +11,7 @@
         }
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email" i18n>Email</label>
         <input id="email" [formField]="employeeForm.email" />
         @if (employeeForm.email().invalid()) {
         @for (err of employeeForm.email().errors(); track err.kind) {
@@ -20,7 +20,7 @@
         }
     </div>
     <div class="form-group">
-        <label for="nationalId">National ID</label>
+        <label for="nationalId" i18n>National ID</label>
         <input id="nationalId" [formField]="employeeForm.nationalId" />
         @if (employeeForm.nationalId().invalid()) {
         @for (err of employeeForm.nationalId().errors(); track err.kind) {
@@ -29,9 +29,9 @@
         }
     </div>
     <div class="form-group">
-        <label for="departmentId">Department</label>
+        <label for="departmentId" i18n>Department</label>
         <select id="departmentId" [formField]="employeeForm.departmentId">
-            <option value="">Select a department</option>
+            <option value="" i18n>Select a department</option>
             @for (dept of departments(); track dept.departmentId) {
                 <option [value]="String(dept.departmentId)">{{ dept.name }}</option>
             }
@@ -43,12 +43,12 @@
         }
     </div>
     <div class="form-group">
-        <label for="status">Status</label>
+        <label for="status" i18n>Status</label>
         <select id="status" [formField]="employeeForm.status">
-            <option value="Active">Active</option>
-            <option value="Suspended">Suspended</option>
-            <option value="Terminated">Terminated</option>
+            <option value="Active" i18n>Active</option>
+            <option value="Suspended" i18n>Suspended</option>
+            <option value="Terminated" i18n>Terminated</option>
         </select>
     </div>
-    <button type="submit">Save</button>
+    <button type="submit" i18n>Save</button>
 </form>

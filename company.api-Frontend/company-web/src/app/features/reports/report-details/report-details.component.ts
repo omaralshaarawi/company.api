@@ -22,7 +22,7 @@ export class ReportDetailsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     if (!id) {
-      this.error.set('Report not found.');
+      this.error.set($localize`Report not found.`);
       this.loading.set(false);
       return;
     }
@@ -33,9 +33,25 @@ export class ReportDetailsComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Could not load report details.');
+        this.error.set($localize`Could not load report details.`);
         this.loading.set(false);
       }
     });
+  }
+
+  getReportTypeLabel(typeName: string | null): string {
+    switch (typeName) {
+      case 'Attendance Summary':
+        return $localize`Attendance Summary`;
+      case 'Asset Audit':
+        return $localize`Asset Audit`;
+      case 'Employee Activity':
+        return $localize`Employee Activity`;
+      case 'General':
+      case null:
+        return $localize`General`;
+      default:
+        return typeName;
+    }
   }
 }

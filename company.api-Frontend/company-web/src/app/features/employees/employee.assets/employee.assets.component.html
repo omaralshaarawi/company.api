@@ -1,19 +1,19 @@
 <div class="page-header">
     <div>
-        <a [routerLink]="['/employees']">Back to employees</a>
-        <h2>Employee assets</h2>
+        <a [routerLink]="['/employees']" i18n>Back to employees</a>
+        <h2 i18n>Employee assets</h2>
     </div>
     <span class="live-indicator" [class]="liveStatus().cssClass">
         ● {{ liveStatus().label }}
     </span>
-    <a class="add-link" [routerLink]="['/employees', employeeId, 'assets', 'new']">Add asset</a>
+    <a class="add-link" [routerLink]="['/employees', employeeId, 'assets', 'new']" i18n>Add asset</a>
 </div>
 @if (loading()) {
-	<p>Loading assets...</p>
+	<p i18n>Loading assets...</p>
 } @else if (error()) {
 	<p class="error">{{ error() }}</p>
 } @else if (employeesAssets().length === 0) {
-	<p>This employee has no assigned assets.</p>
+	<p i18n>This employee has no assigned assets.</p>
 } @else {
 	@if (returnError()) {
 		<p class="error" role="alert">{{ returnError() }}</p>
@@ -21,26 +21,42 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Asset</th>
-				<th>Serial number</th>
-				<th>Assigned</th>
-				<th>Returned</th>
-				<th>Notes</th>
+				<th i18n>Asset</th>
+				<th i18n>Serial number</th>
+				<th i18n>Assigned</th>
+				<th i18n>Returned</th>
+				<th i18n>Notes</th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			@for (assignment of employeesAssets(); track assignment.employeeAssetId) {
 				<tr>
-					<td>{{ getAsset(assignment.assetId)?.assetName ?? ('Asset #' + assignment.assetId) }}</td>
+					<td>
+						@if (getAsset(assignment.assetId)?.assetName; as assetName) {
+							{{ assetName }}
+						} @else {
+							<span i18n>Asset #{{ assignment.assetId }}</span>
+						}
+					</td>
 					<td>{{ getAsset(assignment.assetId)?.serialNumber ?? '-' }}</td>
 					<td>{{ assignment.assignedDate | date:'mediumDate' }}</td>
-					<td>{{ assignment.returnedDate ? (assignment.returnedDate | date:'mediumDate') : 'Assigned' }}</td>
+					<td>
+						@if (assignment.returnedDate) {
+							{{ assignment.returnedDate | date:'mediumDate' }}
+						} @else {
+							<span i18n>Assigned</span>
+						}
+					</td>
 					<td>{{ assignment.notes || '-' }}</td>
 					<td>
 						@if (!assignment.returnedDate) {
 							<button type="button" (click)="returnAsset(assignment)" [disabled]="returningId() === assignment.employeeAssetId">
-								{{ returningId() === assignment.employeeAssetId ? 'Returning...' : 'Return' }}
+								@if (returningId() === assignment.employeeAssetId) {
+									<span i18n>Returning...</span>
+								} @else {
+									<span i18n>Return</span>
+								}
 							</button>
 						}
 					</td>

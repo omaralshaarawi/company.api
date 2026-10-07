@@ -51,7 +51,7 @@ export class EmployeeFingerprintFormComponent {
   protected readonly employeeFingerprintForm = form(this.model, employeeFingerprintFormSchema, {
     submission: {
       action: async (f) => this.save(f().value()),
-      onInvalid: () => this.error.set('Form is invalid. Please fix the highlighted fields.')
+      onInvalid: () => this.error.set($localize`Form is invalid. Please fix the highlighted fields.`)
     }
   });
 
@@ -72,7 +72,7 @@ export class EmployeeFingerprintFormComponent {
       await this.router.navigate(['/employees']);
     } catch {
       this.saving.set(false);
-      this.error.set('The fingerprint could not be saved. Please try again.');
+      this.error.set($localize`The fingerprint could not be saved. Please try again.`);
     }
   }
 }

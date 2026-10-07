@@ -1,7 +1,7 @@
 <form [formRoot]="assetTypeForm">
     <div class="form-group">
-        <a [routerLink]="['/asset-types']">Back to asset types</a>
-        <label for="typeName">Asset Type Name</label>
+        <a [routerLink]="['/asset-types']" i18n>Back to asset types</a>
+        <label for="typeName" i18n>Asset type name</label>
         <input id="typeName" [formField]="assetTypeForm.typeName" />
         @if (assetTypeForm.typeName().invalid()) {
         @for (err of assetTypeForm.typeName().errors(); track err.kind) {
@@ -9,5 +9,5 @@
         }
         }
     </div>
-    <button type="submit">Save</button>
+    <button type="submit" i18n>Save</button>
 </form>

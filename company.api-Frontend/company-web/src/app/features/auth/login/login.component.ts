@@ -25,8 +25,8 @@ export class LoginComponent {
     submission: {
       action: async (f) => this.login(f().value()),
       onInvalid: () => {
-        this.errorMessage.set('Form is invalid — fix the highlighted fields.');
-        console.warn('Form is invalid — fix the highlighted fields.');
+        this.errorMessage.set($localize`Form is invalid — fix the highlighted fields.`);
+        console.warn($localize`Form is invalid — fix the highlighted fields.`);
       }
     }
   });
@@ -39,13 +39,13 @@ export class LoginComponent {
         const returnUrl = '/employees';
         this.router.navigate([returnUrl]);
       } else {
-        this.errorMessage.set('Login failed: No token received.');
+        this.errorMessage.set($localize`Login failed: No token received.`);
       }
     } catch (error) {
       if (error instanceof HttpErrorResponse && error.status === 401) {
-        this.errorMessage.set('Invalid username or password.');
+        this.errorMessage.set($localize`Invalid username or password.`);
       } else {
-        this.errorMessage.set('An unexpected error occurred during login.');
+        this.errorMessage.set($localize`An unexpected error occurred during login.`);
       }
     }
   }

@@ -21,13 +21,13 @@ export class DepartmentListComponent {
         this.loading.set(false);
       },
       error: (err) => {
-        this.error.set('Could not load departments.');
+        this.error.set($localize`Could not load departments.`);
         this.loading.set(false);
       }
     });
   }
   delete(id: number): void {
-    if (!confirm('Delete this department?')) return;
+    if (!confirm($localize`Delete this department?`)) return;
 
     this.departmentService.delete(id).subscribe({
       next: () => {
@@ -35,7 +35,7 @@ export class DepartmentListComponent {
         this.error.set(null);
       },
       error: () => {
-        this.error.set('Cannot delete this department because it has active employees.');
+        this.error.set($localize`Cannot delete this department because it has active employees.`);
       }
     });
   }

@@ -1,27 +1,27 @@
 <section class="history">
 	<div class="history__header">
 		<div>
-			<a class="history__back" [routerLink]="['/assets']">Back to assets</a>
-			<h2>Asset history</h2>
-			<p>Asset ID: {{ assetIdValue }}</p>
+			<a class="history__back" [routerLink]="['/assets']" i18n>Back to assets</a>
+			<h2 i18n>Asset history</h2>
+			<p i18n>Asset ID: {{ assetIdValue }}</p>
 		</div>
 	</div>
 
 	@if (isLoading) {
-		<p class="history__message">Loading history...</p>
+		<p class="history__message" i18n>Loading history...</p>
 	} @else if (errorValue) {
 		<p class="history__message history__message--error">{{ errorValue }}</p>
 	} @else if (historyValue.length === 0) {
-		<p class="history__message">No assignment history found.</p>
+		<p class="history__message" i18n>No assignment history found.</p>
 	} @else {
 		<div class="history__table-wrapper">
 			<table>
 				<thead>
 					<tr>
-						<th>Employee</th>
-						<th>Assigned date</th>
-						<th>Returned date</th>
-						<th>Notes</th>
+						<th i18n>Employee</th>
+						<th i18n>Assigned date</th>
+						<th i18n>Returned date</th>
+						<th i18n>Notes</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,8 +29,20 @@
 						<tr>
 							<td>{{ entry.employeeId }}</td>
 							<td>{{ entry.assignedDate | date: 'mediumDate' }}</td>
-							<td>{{ entry.returnedDate ? (entry.returnedDate | date: 'mediumDate') : 'Still assigned' }}</td>
-							<td>{{ entry.notes || 'No notes' }}</td>
+							<td>
+								@if (entry.returnedDate) {
+									{{ entry.returnedDate | date: 'mediumDate' }}
+								} @else {
+									<span i18n>Still assigned</span>
+								}
+							</td>
+							<td>
+								@if (entry.notes; as notes) {
+									{{ notes }}
+								} @else {
+									<span i18n>No notes</span>
+								}
+							</td>
 						</tr>
 					}
 				</tbody>

@@ -1,15 +1,15 @@
 <form [formRoot]="employeeFingerprintForm">
 	<div class="page-header">
 		<div>
-			<a [routerLink]="['/employees']">Back to employees</a>
-			<h2>Add fingerprint</h2>
+			<a [routerLink]="['/employees']" i18n>Back to employees</a>
+			<h2 i18n>Add fingerprint</h2>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="fingerIndex">Finger index</label>
+		<label for="fingerIndex" i18n>Finger index</label>
 		<select id="fingerIndex" [formField]="employeeFingerprintForm.fingerIndex">
-			<option value="">Select a finger</option>
+			<option value="" i18n>Select a finger</option>
 			@for (finger of fingerIndexOptions; track finger) {
 				<option [value]="finger">{{ finger }}</option>
 			}
@@ -22,17 +22,17 @@
 	</div>
 
 	<div class="form-group">
-		<label for="deviceId">Device ID</label>
+		<label for="deviceId" i18n>Device ID</label>
 		<input id="deviceId" type="text"  [formField]="employeeFingerprintForm.deviceId" />
 	</div>
 
 	<div class="form-group">
-		<label for="enrolledDate">Enrolled date</label>
+		<label for="enrolledDate" i18n>Enrolled date</label>
 		<input id="enrolledDate" type="date" [formField]="employeeFingerprintForm.enrolledDate" />
 	</div>
 
 	<div class="form-group">
-		<label for="quality">Quality</label>
+		<label for="quality" i18n>Quality</label>
 		<input id="quality" type="text"  [formField]="employeeFingerprintForm.quality" />
 	</div>
 
@@ -41,6 +41,10 @@
 	}
 
 	<button type="submit" [disabled]="saving()">
-		{{ saving() ? 'Saving...' : 'Save fingerprint' }}
+		@if (saving()) {
+			<span i18n>Saving...</span>
+		} @else {
+			<span i18n>Save fingerprint</span>
+		}
 	</button>
 </form>

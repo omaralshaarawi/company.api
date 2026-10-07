@@ -1,7 +1,7 @@
 <form [formRoot]="departmentForm">
     <div class="form-group">
-        <a  [routerLink]="['/departments']">Back to departments</a>
-        <label for="departmentName">Department Name</label>
+        <a [routerLink]="['/departments']" i18n>Back to departments</a>
+        <label for="departmentName" i18n>Department name</label>
         <input id="departmentName" [formField]="departmentForm.name" />
         @if (departmentForm.name().invalid()) {
         @for (err of departmentForm.name().errors(); track err.kind) {
@@ -9,5 +9,5 @@
         }
         }
     </div>
-    <button type="submit">Save</button>
+    <button type="submit" i18n>Save</button>
 </form>

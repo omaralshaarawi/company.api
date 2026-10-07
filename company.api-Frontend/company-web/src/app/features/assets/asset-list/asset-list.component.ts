@@ -27,13 +27,13 @@ export class AssetListComponent implements OnInit {
   protected readonly liveStatus = computed(() => {
     switch (this.notificationService.connectionState()) {
       case signalR.HubConnectionState.Connected:
-        return { label: 'Live', cssClass: 'status-live' };
+        return { label: $localize`Live`, cssClass: 'status-live' };
       case signalR.HubConnectionState.Reconnecting:
-        return { label: 'Reconnecting...', cssClass: 'status-reconnecting' };
+        return { label: $localize`Reconnecting...`, cssClass: 'status-reconnecting' };
       case signalR.HubConnectionState.Connecting:
-        return { label: 'Connecting...', cssClass: 'status-reconnecting' };
+        return { label: $localize`Connecting...`, cssClass: 'status-reconnecting' };
       default:
-        return { label: 'Offline', cssClass: 'status-offline' };
+        return { label: $localize`Offline`, cssClass: 'status-offline' };
     }
   });
 
@@ -58,7 +58,7 @@ export class AssetListComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Could not load assets.');
+        this.error.set($localize`Could not load assets.`);
         this.loading.set(false);
       }
     });
@@ -85,8 +85,23 @@ export class AssetListComponent implements OnInit {
     }
   }
 
+  getStatusLabel(status: string | null): string {
+    switch (status) {
+      case 'InStock':
+        return $localize`In stock`;
+      case 'Assigned':
+        return $localize`Assigned`;
+      case 'Maintenance':
+        return $localize`Maintenance`;
+      case 'Retired':
+        return $localize`Retired`;
+      default:
+        return status ?? '';
+    }
+  }
+
   delete(id: number): void {
-    if (!confirm('Delete this asset?')) return;
+    if (!confirm($localize`Delete this asset?`)) return;
     this.assetService.delete(id).subscribe(() => {
       this.assets.update(list => list.filter(a => a.assetId !== id));
     });

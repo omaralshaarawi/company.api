@@ -1,38 +1,38 @@
 <section class="attendance-page">
 	<div class="page-header">
 		<div>
-			<a [routerLink]="['/employees']">Back to employees</a>
-			<h2>Attendance logs</h2>
+			<a [routerLink]="['/employees']" i18n>Back to employees</a>
+			<h2 i18n>Attendance logs</h2>
 		</div>
 	</div>
 
 	<form class="filters" (submit)="$event.preventDefault(); loadLogs()">
 		<label>
-			From
+			<span i18n>From</span>
 			<input type="date" [value]="from()" (input)="from.set($any($event.target).value)" />
 		</label>
 		<label>
-			To
+			<span i18n>To</span>
 			<input type="date" [value]="to()" (input)="to.set($any($event.target).value)" />
 		</label>
-		<button type="submit">Filter</button>
+		<button type="submit" i18n>Filter</button>
 	</form>
 
 	@if (loading()) {
-		<p>Loading attendance logs...</p>
+		<p i18n>Loading attendance logs...</p>
 	} @else if (error()) {
 		<p class="error" role="alert">{{ error() }}</p>
 		} @else if (logs().length === 0) {
-		<p>No attendance logs found for this date range.</p>
+		<p i18n>No attendance logs found for this date range.</p>
 	} @else {
 		<table>
 			<thead>
 				<tr>
-					<th>Attendance log ID</th>
-					<th>Employee ID</th>
-					<th>Device ID</th>
-					<th>Event type</th>
-					<th>Event time</th>
+					<th i18n>Attendance log ID</th>
+					<th i18n>Employee ID</th>
+					<th i18n>Device ID</th>
+					<th i18n>Event type</th>
+					<th i18n>Event time</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,7 +50,7 @@
 								<span aria-hidden="true">
 									{{ log.eventType.toLowerCase() === 'checkin' ? '&#10003;' : '&#10138;' }}
 								</span>
-								{{ log.eventType }}
+								{{ eventTypeLabel(log.eventType) }}
 							</span>
 						</td>
 						<td>{{ log.eventTime | date:'medium' }}</td>

@@ -33,10 +33,21 @@ export class AttendancelogListComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Could not load attendance logs.');
+        this.error.set($localize`Could not load attendance logs.`);
         this.loading.set(false);
       }
     });
+  }
+
+  protected eventTypeLabel(eventType: string): string {
+    switch (eventType.toLowerCase()) {
+      case 'checkin':
+        return $localize`Check in`;
+      case 'checkout':
+        return $localize`Check out`;
+      default:
+        return eventType;
+    }
   }
 
 }

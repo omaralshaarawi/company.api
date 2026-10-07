@@ -91,7 +91,7 @@ export class ReportListComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Could not load reports.');
+        this.error.set($localize`Could not load reports.`);
         this.loading.set(false);
       }
     });
@@ -143,7 +143,7 @@ export class ReportListComponent implements OnInit {
         this.loadReports();
       },
       error: () => {
-        this.error.set('Could not generate report.');
+        this.error.set($localize`Could not generate report.`);
       }
     });
   }
@@ -159,6 +159,21 @@ export class ReportListComponent implements OnInit {
       default:
         return undefined;
     }
+  }
+
+  protected getReportTypeLabel(typeName: string | null): string {
+    switch (typeName) {
+      case 'Attendance Summary':
+        return $localize`Attendance Summary`;
+      case 'Asset Audit':
+        return $localize`Asset Audit`;
+      case 'Employee Activity':
+        return $localize`Employee Activity`;
+      case 'General':
+      case null:
+        return $localize`General`;
+    }
+    return typeName;
   }
 
   protected reportTypeColor(type: string | null): string {

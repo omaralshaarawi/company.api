@@ -7,6 +7,6 @@ export const employeeFingerprintFormSchema = schema<{
   enrolledDate: string | null;
   quality: string;
 }>((path) => {
-  required(path.employeeId, { message: 'Employee is required.' });
-  required(path.fingerIndex, { message: 'Finger index is required.' });
+  required(path.employeeId, { message: $localize`Employee is required.` });
+  required(path.fingerIndex, { message: $localize`Finger index is required.` });
 });

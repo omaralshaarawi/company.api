@@ -22,7 +22,7 @@ export class AssetTypeListComponent implements OnInit {
         this.loading.set(false);
       },
       error: (err) => {
-        this.error.set('Could not load asset types.');
+        this.error.set($localize`Could not load asset types.`);
         this.loading.set(false);
       }
     });
@@ -30,7 +30,7 @@ export class AssetTypeListComponent implements OnInit {
 
 
   delete(id: number): void {
-    if (!confirm('Delete this asset type?')) return;
+    if (!confirm($localize`Delete this asset type?`)) return;
 
     this.assetTypeService.delete(id).subscribe({
       next: () => {
@@ -38,7 +38,7 @@ export class AssetTypeListComponent implements OnInit {
         this.error.set(null);
       },
       error: () => {
-        this.error.set('Cannot delete this asset type because it is in use.');
+        this.error.set($localize`Cannot delete this asset type because it is in use.`);
       }
     });
   }

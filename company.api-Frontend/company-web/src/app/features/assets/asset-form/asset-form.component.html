@@ -1,11 +1,15 @@
 <form class="form" [formRoot]="assetForm">
 	<div class="form__header">
-        <a [routerLink]="['/assets']">Back to assets</a>
-		<h2>{{ assetId ? 'Edit asset' : 'Add asset' }}</h2>
+        <a [routerLink]="['/assets']" i18n>Back to assets</a>
+		@if (assetId) {
+			<h2 i18n>Edit asset</h2>
+		} @else {
+			<h2 i18n>Add asset</h2>
+		}
 	</div>
 
 	<div class="form__body">
-		<label for="assetName">Asset name</label>
+		<label for="assetName" i18n>Asset name</label>
 		<input id="assetName" type="text" [formField]="assetForm.assetName" />
 		@if (assetForm.assetName().invalid()) {
 			@for (error of assetForm.assetName().errors(); track error.kind) {
@@ -13,7 +17,7 @@
 			}
 		}
 
-		<label for="assetTypeId">Asset type ID</label>
+		<label for="assetTypeId" i18n>Asset type ID</label>
 		<input id="assetTypeId" type="number" [formField]="assetForm.assetTypeId" />
 		@if (assetForm.assetTypeId().invalid()) {
 			@for (error of assetForm.assetTypeId().errors(); track error.kind) {
@@ -21,25 +25,25 @@
 			}
 		}
 
-		<label for="serialNumber">Serial number</label>
+		<label for="serialNumber" i18n>Serial number</label>
 		<input id="serialNumber" type="text" [formField]="assetForm.serialNumber" />
 
-		<label for="purchaseDate">Purchase date</label>
+		<label for="purchaseDate" i18n>Purchase date</label>
 		<input id="purchaseDate" type="date" [formField]="assetForm.purchaseDate" />
 
-		<label for="purchaseCost">Purchase cost</label>
+		<label for="purchaseCost" i18n>Purchase cost</label>
 		<input id="purchaseCost" type="number" [formField]="assetForm.purchaseCost" />
 
-		<label for="status">Status</label>
+		<label for="status" i18n>Status</label>
 		<select id="status" type="string" [formField]="assetForm.status">
-			<option value="">Select status</option>
-			<option value="InStock">In stock</option>
-			<option value="Assigned">Assigned</option>
-			<option value="Retired">Retired</option>
+			<option value="" i18n>Select status</option>
+			<option value="InStock" i18n>In stock</option>
+			<option value="Assigned" i18n>Assigned</option>
+			<option value="Retired" i18n>Retired</option>
 		</select>
 	</div>
 
 	<div class="form__actions">
-		<button type="submit">Save</button>
+		<button type="submit" i18n>Save</button>
 	</div>
 </form>

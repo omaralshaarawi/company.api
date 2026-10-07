@@ -28,18 +28,32 @@ export class EmployeeListComponent implements OnInit {
         }
         return map;
     });
+
+    statusLabel(status: string | null): string {
+        switch (status) {
+            case 'Active':
+                return $localize`Active`;
+            case 'Suspended':
+                return $localize`Suspended`;
+            case 'Terminated':
+                return $localize`Terminated`;
+            default:
+                return status ?? '';
+        }
+    }
+
     ngOnInit(): void {
         this.employeeService.getAll().subscribe({
             next: (data) => { this.employees.set(data); this.loading.set(false); },
-            error: (err) => { this.error.set('Could not load employees.'); this.loading.set(false); }
+            error: (err) => { this.error.set($localize`Could not load employees.`); this.loading.set(false); }
         });
         this.fingerprintService.getAll().subscribe({
             next: (data) => { this.fingerprints.set(data); this.loadingFingerprints.set(false); },
-            error: (err) => { this.errorFingerprints.set('Could not load fingeprints.'); this.loadingFingerprints.set(false); }
+            error: (err) => { this.errorFingerprints.set($localize`Could not load fingerprints.`); this.loadingFingerprints.set(false); }
         });
     }
     delete(id: number): void {
-        if (!confirm('Delete this employee?')) return;
+        if (!confirm($localize`Delete this employee?`)) return;
         this.employeeService.delete(id).subscribe(() => {
             this.employees.update(list => list.filter(e => e.employeeId !== id));
         });

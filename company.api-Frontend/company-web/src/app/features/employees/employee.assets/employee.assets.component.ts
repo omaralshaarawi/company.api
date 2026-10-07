@@ -29,13 +29,13 @@ export class EmployeeAssetsComponent implements OnInit {
     protected readonly liveStatus = computed(() => {
     switch (this.notificationService.connectionState()) {
       case signalR.HubConnectionState.Connected:
-        return { label: 'Live', cssClass: 'status-live' };
+        return { label: $localize`Live`, cssClass: 'status-live' };
       case signalR.HubConnectionState.Reconnecting:
-        return { label: 'Reconnecting…', cssClass: 'status-reconnecting' };
+        return { label: $localize`Reconnecting…`, cssClass: 'status-reconnecting' };
       case signalR.HubConnectionState.Connecting:
-        return { label: 'Connecting…', cssClass: 'status-reconnecting' };
+        return { label: $localize`Connecting…`, cssClass: 'status-reconnecting' };
       default:
-        return { label: 'Offline', cssClass: 'status-offline' };
+        return { label: $localize`Offline`, cssClass: 'status-offline' };
     }
   });
 
@@ -64,7 +64,7 @@ export class EmployeeAssetsComponent implements OnInit {
         this.loadAssets();
       },
       error: () => {
-        this.error.set('Could not load this employee\'s assets.');
+        this.error.set($localize`Could not load this employee's assets.`);
         this.loading.set(false);
       }
         });
@@ -77,7 +77,7 @@ export class EmployeeAssetsComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Could not load asset details.');
+        this.error.set($localize`Could not load asset details.`);
         this.loading.set(false);
       }
     });
@@ -88,7 +88,7 @@ export class EmployeeAssetsComponent implements OnInit {
   }
 
   returnAsset(assignment: EmployeeAsset): void {
-    if (!confirm('Return this asset?')) return;
+    if (!confirm($localize`Return this asset?`)) return;
 
     this.returningId.set(assignment.employeeAssetId);
     this.returnError.set(null);
@@ -101,7 +101,7 @@ export class EmployeeAssetsComponent implements OnInit {
       },
       error: () => {
         this.returningId.set(null);
-        this.returnError.set('This asset could not be returned. It may already have been returned or changed by another user.');
+        this.returnError.set($localize`This asset could not be returned. It may already have been returned or changed by another user.`);
       }
     });
   }

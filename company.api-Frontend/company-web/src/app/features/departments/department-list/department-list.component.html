@@ -1,17 +1,17 @@
 <div class="page-header">
-    <div><span class="eyebrow">Organization</span><h2>Departments</h2></div>
-    <a class="add-link" [routerLink]="['/departments','new']">Add department <span>↗</span></a>
+    <div><span class="eyebrow" i18n>Organization</span><h2 i18n>Departments</h2></div>
+    <a class="add-link" [routerLink]="['/departments','new']"><span i18n>Add department</span> <span>↗</span></a>
 </div>
 @if (loading()) {
-<p>Loading...</p>
+<p i18n>Loading...</p>
 } @else if (error()) {
 <p class="error">{{ error() }}</p>
 } @else {
 <table>
     <thead>
         <tr>
-            <th>Department</th>
-            <th>Created</th>
+            <th i18n>Department</th>
+            <th i18n>Created</th>
             <th></th>
         </tr>
     </thead>
@@ -21,8 +21,8 @@
             <td>{{ dept.name }}</td>
             <td>{{ dept.createdAt | date }}</td>
             <td>
-                <a [routerLink]="['/departments', dept.departmentId, 'edit']">Edit</a>
-                <button (click)="delete(dept.departmentId)">Delete</button>
+                <a [routerLink]="['/departments', dept.departmentId, 'edit']" i18n>Edit</a>
+                <button (click)="delete(dept.departmentId)" i18n>Delete</button>
                 
             </td>
         </tr>

@@ -1,19 +1,19 @@
 <div class="page-header">
-    <div><span class="eyebrow">People</span><h2>Employees</h2></div>
-    <a class="add-link" [routerLink]="['/employees','new']">Add employee <span>↗</span></a>
+    <div><span class="eyebrow" i18n>People</span><h2 i18n>Employees</h2></div>
+    <a class="add-link" [routerLink]="['/employees','new']"><span i18n>Add employee</span> <span>↗</span></a>
 </div>
 @if (loading()) {
-<p>Loading...</p>
+<p i18n>Loading...</p>
 } @else if (error()) {
 <p class="error">{{ error() }}</p>
 } @else {
 <table>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Status</th>
-            <th>Fingerprint</th>
+            <th i18n>Name</th>
+            <th i18n>Department</th>
+            <th i18n>Status</th>
+            <th i18n>Fingerprint</th>
             <th></th>
         </tr>
     </thead>
@@ -22,15 +22,15 @@
         <tr>
             <td>{{ emp.fullName }}</td>
             <td>{{ emp.departmentName }}</td>
-            <td>{{ emp.status }}</td>
+            <td>{{ statusLabel(emp.status) }}</td>
             <td>
-                <a class="fingerprint-button" [routerLink]="['/employees', emp.employeeId, 'fingerprint','new']">Add fingerprint <span>↗</span></a>
+                <a class="fingerprint-button" [routerLink]="['/employees', emp.employeeId, 'fingerprint','new']"><span i18n>Add fingerprint</span> <span>↗</span></a>
             </td>
             <td class="action-links">
-                <a [routerLink]="['/employees', emp.employeeId, 'edit']">Edit</a>
-                <a [routerLink]="['/employees', emp.employeeId, 'assets']">Assets</a>
-                <a [routerLink]="['/employees', emp.employeeId, 'attendance']">Attendance</a>
-                <button (click)="delete(emp.employeeId)">Delete</button>
+                <a [routerLink]="['/employees', emp.employeeId, 'edit']" i18n>Edit</a>
+                <a [routerLink]="['/employees', emp.employeeId, 'assets']" i18n>Assets</a>
+                <a [routerLink]="['/employees', emp.employeeId, 'attendance']" i18n>Attendance</a>
+                <button (click)="delete(emp.employeeId)" i18n>Delete</button>
             </td>
         </tr>
         }
@@ -38,28 +38,34 @@
 </table>
 }
 <div class="fingerprints-heading" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-    <h2>Fingerprints</h2>
+    <h2 i18n>Fingerprints</h2>
 </div>
 @if (loadingFingerprints()) {
-<p>Loading...</p>
+<p i18n>Loading...</p>
 } @else if (errorFingerprints()) {
 <p class="error">{{ errorFingerprints() }}</p>
 } @else {
 <table>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Finger Index</th>
-            <th>Device ID</th>
-            <th>EnrolledDate</th>
-            <th>Quality</th>
+            <th i18n>Name</th>
+            <th i18n>Finger Index</th>
+            <th i18n>Device ID</th>
+            <th i18n>Enrolled date</th>
+            <th i18n>Quality</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @for (fng of fingerprints(); track fng.fingerprintId) {
         <tr>
-            <td>{{ employeeDictionary().get(fng.employeeId) ?? 'Unknown Employee' }}</td>
+            <td>
+                @if (employeeDictionary().get(fng.employeeId); as employeeName) {
+                    {{ employeeName }}
+                } @else {
+                    <span i18n>Unknown employee</span>
+                }
+            </td>
             <td>{{ fng.fingerIndex }}</td>
             <td>{{ fng.deviceId }}</td>
             <td>{{ fng.enrolledDate }}</td>

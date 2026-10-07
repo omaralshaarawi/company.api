@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap');
 
 :root { --ink:#14201c; --muted:#6c7972; --line:#dce4de; --paper:#f7f8f4; --surface:#fff; --pine:#0e493d; --leaf:#b7d943; --orange:#ed744a; --shadow:0 18px 40px rgba(20,32,28,.07); }
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
 body { background: var(--paper); color: var(--ink); font-family: 'Manrope', sans-serif; font-size: 14px; }
+html[dir="rtl"] body { font-family: 'Noto Sans Arabic', 'Manrope', sans-serif; }
 a { color: var(--pine); font-weight: 700; text-decoration: none; }
 a:hover { color: var(--orange); }
 button, input, select { font: inherit; }
@@ -15,7 +16,7 @@ th { background: #edf2ec; color: var(--muted); font-family: 'DM Mono', monospace
 td { border-top: 1px solid var(--line); padding: 16px 18px; vertical-align: middle; }
 tbody tr { transition: background .18s ease; }
 tbody tr:hover { background: #f3f7ef; }
-td a { margin-right: 16px; }
+td a { margin-inline-end: 16px; }
 .action-links { min-width: 360px; }
 .action-links a { display: inline-block; margin-bottom: 5px; }
 .fingerprint-button { background: var(--leaf); border-radius: 7px; color: var(--pine); display: inline-block; font-size: 12px; font-weight: 800; padding: 9px 11px; white-space: nowrap; }
@@ -25,7 +26,7 @@ td button:hover, .form__actions button:hover, form > button:hover { background: 
 input, select { background: white; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); min-height: 42px; outline: none; padding: 10px 12px; }
 input:focus, select:focus { border-color: var(--pine); box-shadow: 0 0 0 3px rgba(14,73,61,.1); }
 label { color: var(--muted); display: grid; font-size: 12px; font-weight: 700; gap: 7px; }
-.error { background: #fff1ee; border-left: 3px solid var(--orange); color: #aa432b; margin: 12px 0; padding: 10px 12px; }
+.error { background: #fff1ee; border-inline-start: 3px solid var(--orange); color: #aa432b; margin: 12px 0; padding: 10px 12px; }
 .page-header { align-items: flex-start; display: flex; gap: 20px; justify-content: space-between; margin-bottom: 28px; }
 .fingerprints-heading { margin-top: 28px; }
 .page-header h2 { margin: 7px 0 0; }

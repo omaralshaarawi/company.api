@@ -1,30 +1,30 @@
 <div class="page-header">
     <div>
-        <span class="eyebrow">Inventory</span>
-        <h2>Assets</h2>
+        <span class="eyebrow" i18n>Inventory</span>
+        <h2 i18n>Assets</h2>
     </div>
     <div class="page-actions">
         <span class="live-indicator" [class]="liveStatus().cssClass">● {{ liveStatus().label }}</span>
-        <a class="add-link" [routerLink]="['/assets','new']">Add asset <span>↗</span></a>
+        <a class="add-link" [routerLink]="['/assets','new']"><span i18n>Add asset</span> <span>↗</span></a>
     </div>
 </div>
 
 <div style="display: flex; gap: 1rem; align-items: end; margin: 1rem 0; flex-wrap: wrap;">
     <label>
-        Status
+        <span i18n>Status</span>
         <select [value]="selectedStatus ?? ''" #statusFilter (change)="applyFilters(statusFilter.value || undefined, selectedAssetTypeId)">
-            <option value="">All</option>
-            <option value="InStock">InStock</option>
-            <option value="Assigned">Assigned</option>
-            <option value="Maintenance">Maintenance</option>
-            <option value="Retired">Retired</option>
+            <option value="" i18n>All</option>
+            <option value="InStock" i18n>In stock</option>
+            <option value="Assigned" i18n>Assigned</option>
+            <option value="Maintenance" i18n>Maintenance</option>
+            <option value="Retired" i18n>Retired</option>
         </select>
     </label>
 
     <label>
-        Asset Type
+        <span i18n>Asset type</span>
         <select [value]="selectedAssetTypeId ?? ''" #assetTypeFilter (change)="applyFilters(selectedStatus, assetTypeFilter.value ? +assetTypeFilter.value : undefined)">
-            <option value="">All</option>
+            <option value="" i18n>All</option>
             @for (type of assetTypes(); track type.assetTypeId) {
                 <option [value]="type.assetTypeId">{{ type.typeName }}</option>
             }
@@ -33,16 +33,16 @@
 </div>
 
 @if (loading()) {
-<p>Loading...</p>
+<p i18n>Loading...</p>
 } @else if (error()) {
 <p class="error">{{ error() }}</p>
 } @else {
 <table>
     <thead>
         <tr>
-            <th>Asset Name</th>
-            <th>Asset Type</th>
-            <th>Status</th>
+            <th i18n>Asset name</th>
+            <th i18n>Asset type</th>
+            <th i18n>Status</th>
             <th></th>
         </tr>
     </thead>
@@ -57,17 +57,16 @@
             }
             <td>
                 <span class="status-badge" [ngClass]="getStatusClass(asset.status)">
-                    {{ asset.status }}
+                    {{ getStatusLabel(asset.status) }}
                 </span>
             </td>
             <td>
-                <a [routerLink]="['/assets', asset.assetId, 'edit']">Edit</a>
-                <a [routerLink]="['/assets', asset.assetId, 'history']">History</a>
-                <button (click)="delete(asset.assetId)">Delete</button>
+                <a [routerLink]="['/assets', asset.assetId, 'edit']" i18n>Edit</a>
+                <a [routerLink]="['/assets', asset.assetId, 'history']" i18n>History</a>
+                <button (click)="delete(asset.assetId)" i18n>Delete</button>
             </td>
         </tr>
         }
     </tbody>
 </table>
 }
-

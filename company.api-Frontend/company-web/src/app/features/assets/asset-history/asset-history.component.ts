@@ -40,7 +40,7 @@ export class AssetHistoryComponent implements OnInit {
 		const id = this.route.snapshot.paramMap.get('id');
 
 		if (!id) {
-			this.error.set('An asset id is required.');
+			this.error.set($localize`An asset ID is required.`);
 			return;
 		}
 
@@ -53,7 +53,7 @@ export class AssetHistoryComponent implements OnInit {
 				this.loading.set(false);
 			},
 			error: () => {
-				this.error.set('Unable to load asset history.');
+				this.error.set($localize`Unable to load asset history.`);
 				this.loading.set(false);
 			}
 		});

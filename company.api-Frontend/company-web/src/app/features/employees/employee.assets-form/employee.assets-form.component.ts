@@ -47,7 +47,7 @@ export class EmployeeAssetsFormComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Could not load available assets.');
+        this.error.set($localize`Could not load available assets.`);
         this.loading.set(false);
       }
     });

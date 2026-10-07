@@ -16,6 +16,17 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "code": "en-US",
+          "subPath": ""
+        },
+        "locales": {
+          "ar": {
+            "translation": "src/locale/messages.ar.xlf"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -23,17 +34,29 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "define": {
+              "__APP_DEFAULT_LANGUAGE__": "\"en\""
+            },
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "messages.ar.xlf",
+                "input": "src/locale",
+                "output": "locale"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"],
+            "polyfills": ["@angular/localize/init"]
           },
           "configurations": {
+            "ar": {
+              "define": {
+                "__APP_DEFAULT_LANGUAGE__": "\"ar\""
+              }
+            },
             "production": {
               "budgets": [
                 {
@@ -60,6 +83,9 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
+            "ar": {
+              "buildTarget": "company-web:build:development,ar"
+            },
             "production": {
               "buildTarget": "company-web:build:production"
             },

@@ -1,0 +1,1787 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="ar">
+    <body>
+      <trans-unit id="8814183017040414629" datatype="html">
+        <source>Company<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;brand-accent&quot;&gt;"/>.ops<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>شركة<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;brand-accent&quot;&gt;"/>.العمليات<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2244471832629453998" datatype="html">
+        <source>Workspace</source>
+        <target>مساحة العمل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1187764551054003222" datatype="html">
+        <source>Main navigation</source>
+        <target>التنقل الرئيسي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3537701360947660901" datatype="html">
+        <source>Employees</source>
+        <target>الموظفون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6945686797037328785" datatype="html">
+        <source>Departments</source>
+        <target>الأقسام</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1647750822609779679" datatype="html">
+        <source>Assets</source>
+        <target>الأصول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1565850799044612513" datatype="html">
+        <source>Asset types</source>
+        <target>أنواع الأصول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1868606282505332204" datatype="html">
+        <source>Reports</source>
+        <target>التقارير</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6999443690884730752" datatype="html">
+        <source>System connected</source>
+        <target>النظام متصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2949848596707725099" datatype="html">
+        <source>Sign out</source>
+        <target>تسجيل الخروج</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8368581754354102415" datatype="html">
+        <source>Operations console</source>
+        <target>لوحة العمليات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6912787617357082888" datatype="html">
+        <source>People, equipment, and activity</source>
+        <target>الأفراد والمعدات والأنشطة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7421734753733374282" datatype="html">
+        <source>CONTROL CENTER <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>2026<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>مركز التحكم <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>2026<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8733143670623711659" datatype="html">
+        <source>Back to asset types</source>
+        <target>العودة إلى أنواع الأصول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-form/asset-type-form.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2370845307708853243" datatype="html">
+        <source>Asset type name</source>
+        <target>اسم نوع الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-form/asset-type-form.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target>حفظ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-form/asset-type-form.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-form/department-form.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4521044666956876763" datatype="html">
+        <source>Asset type name is required.</source>
+        <target>اسم نوع الأصل مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-form/asset-type-schema.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3010057485486897763" datatype="html">
+        <source>Inventory</source>
+        <target>المخزون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1922815897791159254" datatype="html">
+        <source>Add asset type</source>
+        <target>إضافة نوع أصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source>
+        <target>جارٍ التحميل...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Edit</source>
+        <target>تعديل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+        <target>حذف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8285586044971522183" datatype="html">
+        <source>Could not load asset types.</source>
+        <target>تعذر تحميل أنواع الأصول.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2199288115054435071" datatype="html">
+        <source>Delete this asset type?</source>
+        <target>هل تريد حذف نوع الأصل هذا؟</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4219956255873618078" datatype="html">
+        <source>Cannot delete this asset type because it is in use.</source>
+        <target>لا يمكن حذف نوع الأصل لأنه قيد الاستخدام.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assetTypes/asset-type-list/asset-type-list.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6634069232499124018" datatype="html">
+        <source>Back to assets</source>
+        <target>العودة إلى الأصول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7254986282292799184" datatype="html">
+        <source>Edit asset</source>
+        <target>تعديل الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6795632721613274289" datatype="html">
+        <source>Add asset</source>
+        <target>إضافة أصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3196661302329714881" datatype="html">
+        <source>Asset name</source>
+        <target>اسم الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6258457089703717127" datatype="html">
+        <source>Asset type ID</source>
+        <target>معرّف نوع الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4606793880716021431" datatype="html">
+        <source>Serial number</source>
+        <target>الرقم التسلسلي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1740382639316288426" datatype="html">
+        <source>Purchase date</source>
+        <target>تاريخ الشراء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2828210879587908712" datatype="html">
+        <source>Purchase cost</source>
+        <target>تكلفة الشراء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5611592591303869712" datatype="html">
+        <source>Status</source>
+        <target>الحالة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6802278531377016537" datatype="html">
+        <source>Select status</source>
+        <target>اختر الحالة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3222015692410349830" datatype="html">
+        <source>In stock</source>
+        <target>متوفر بالمخزون</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6069680004547866674" datatype="html">
+        <source>Assigned</source>
+        <target>مُخصّص</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8116837338622688718" datatype="html">
+        <source>Retired</source>
+        <target>مُستبعد</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/asset-form.component.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3030515211149063597" datatype="html">
+        <source>Asset name is required.</source>
+        <target>اسم الأصل مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/assets-schema.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1223333831055347962" datatype="html">
+        <source>Asset type ID is required.</source>
+        <target>معرّف نوع الأصل مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-form/assets-schema.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1360024833320541566" datatype="html">
+        <source>Asset history</source>
+        <target>سجل الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4077718916437910173" datatype="html">
+        <source>Asset ID: <x id="INTERPOLATION" equiv-text="{{ assetIdValue }}"/></source>
+        <target>معرّف الأصل: <x id="INTERPOLATION" equiv-text="{{ assetIdValue }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6438310831509795505" datatype="html">
+        <source>Loading history...</source>
+        <target>جارٍ تحميل السجل...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4983403643857830105" datatype="html">
+        <source>No assignment history found.</source>
+        <target>لم يتم العثور على سجل تخصيص.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4536004607617325628" datatype="html">
+        <source>Employee</source>
+        <target>الموظف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">109,110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1187348221912213114" datatype="html">
+        <source>Assigned date</source>
+        <target>تاريخ التخصيص</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1006831863447413537" datatype="html">
+        <source>Returned date</source>
+        <target>تاريخ الإرجاع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8104421162933956065" datatype="html">
+        <source>Notes</source>
+        <target>ملاحظات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1961065281771577458" datatype="html">
+        <source>Still assigned</source>
+        <target>ما زال مُخصّصًا</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5973381151475657501" datatype="html">
+        <source>No notes</source>
+        <target>لا توجد ملاحظات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="676723415278517339" datatype="html">
+        <source>An asset ID is required.</source>
+        <target>معرّف الأصل مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4274795295116976535" datatype="html">
+        <source>Unable to load asset history.</source>
+        <target>تعذر تحميل سجل الأصل.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-history/asset-history.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1616102757855967475" datatype="html">
+        <source>All</source>
+        <target>الكل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3465942650835858981" datatype="html">
+        <source>Maintenance</source>
+        <target>قيد الصيانة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6465902723251475987" datatype="html">
+        <source>Asset type</source>
+        <target>نوع الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="186236568870281953" datatype="html">
+        <source>History</source>
+        <target>السجل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8610504659433544583" datatype="html">
+        <source>Live</source>
+        <target>مباشر</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2385197688904536915" datatype="html">
+        <source>Reconnecting...</source>
+        <target>جارٍ إعادة الاتصال...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3852289441366561594" datatype="html">
+        <source>Connecting...</source>
+        <target>جارٍ الاتصال...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="313850810538580916" datatype="html">
+        <source>Offline</source>
+        <target>غير متصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1749546226680153289" datatype="html">
+        <source>Could not load assets.</source>
+        <target>تعذر تحميل الأصول.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7224078767509072608" datatype="html">
+        <source>Delete this asset?</source>
+        <target>هل تريد حذف هذا الأصل؟</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/assets/asset-list/asset-list.component.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3868123820758341861" datatype="html">
+        <source>Username is required.</source>
+        <target>اسم المستخدم مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login-schema.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3577237269587081090" datatype="html">
+        <source>Password is required.</source>
+        <target>كلمة المرور مطلوبة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login-schema.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2310600076993012312" datatype="html">
+        <source>Everything your team needs, in one clear view.</source>
+        <target>كل ما يحتاجه فريقك، في عرض واضح واحد.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3127871818704874661" datatype="html">
+        <source>Manage people, equipment, and daily activity from a single workspace.</source>
+        <target>أدِر الأفراد والمعدات والأنشطة اليومية من مساحة عمل واحدة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7551589586257064949" datatype="html">
+        <source>READY FOR WORK</source>
+        <target>جاهزون للعمل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5757286040846492730" datatype="html">
+        <source>Secure access</source>
+        <target>دخول آمن</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4200317694838753109" datatype="html">
+        <source>Welcome back</source>
+        <target>مرحبًا بعودتك</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5337667723415406345" datatype="html">
+        <source>Sign in to continue to your workspace.</source>
+        <target>سجّل الدخول للمتابعة إلى مساحة عملك.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5248717555542428023" datatype="html">
+        <source>Username</source>
+        <target>اسم المستخدم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target>كلمة المرور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <target>تسجيل الدخول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2256782880674393435" datatype="html">
+        <source>Form is invalid — fix the highlighted fields.</source>
+        <target>النموذج غير صالح — يرجى تصحيح الحقول المحددة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7187039193844356771" datatype="html">
+        <source>Login failed: No token received.</source>
+        <target>فشل تسجيل الدخول: لم يتم استلام رمز الدخول.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4518373770073519541" datatype="html">
+        <source>Invalid username or password.</source>
+        <target>اسم المستخدم أو كلمة المرور غير صحيحة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6205923237998693930" datatype="html">
+        <source>An unexpected error occurred during login.</source>
+        <target>حدث خطأ غير متوقع أثناء تسجيل الدخول.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/login/login.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="754700013796791915" datatype="html">
+        <source>Back to departments</source>
+        <target>العودة إلى الأقسام</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-form/department-form.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1186697777586073741" datatype="html">
+        <source>Department name</source>
+        <target>اسم القسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-form/department-form.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1081237514956036494" datatype="html">
+        <source>Department name is required.</source>
+        <target>اسم القسم مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-form/department-schema.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3076687427621376223" datatype="html">
+        <source>Organization</source>
+        <target>المنظمة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3918175813300901658" datatype="html">
+        <source>Add department</source>
+        <target>إضافة قسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3955967824702499842" datatype="html">
+        <source>Department</source>
+        <target>القسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4207916966377787111" datatype="html">
+        <source>Created</source>
+        <target>تاريخ الإنشاء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="651533245500767637" datatype="html">
+        <source>Could not load departments.</source>
+        <target>تعذر تحميل الأقسام.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1999783622484376962" datatype="html">
+        <source>Delete this department?</source>
+        <target>هل تريد حذف هذا القسم؟</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1086947591363786475" datatype="html">
+        <source>Cannot delete this department because it has active employees.</source>
+        <target>لا يمكن حذف هذا القسم لوجود موظفين نشطين فيه.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/departments/department-list/department-list.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8079348756257353808" datatype="html">
+        <source>Back to employees</source>
+        <target>العودة إلى الموظفين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8301535046747035390" datatype="html">
+        <source>Full name</source>
+        <target>الاسم الكامل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target>البريد الإلكتروني</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="872441943271955316" datatype="html">
+        <source>National ID</source>
+        <target>رقم الهوية الوطنية</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2936930433856033743" datatype="html">
+        <source>Select a department</source>
+        <target>اختر قسمًا</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8204176479746810612" datatype="html">
+        <source>Active</source>
+        <target>نشط</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5851424994801012357" datatype="html">
+        <source>Suspended</source>
+        <target>موقوف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2264152328243569856" datatype="html">
+        <source>Terminated</source>
+        <target>منتهي الخدمة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-form.component.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8481415456926263062" datatype="html">
+        <source>Full name is required.</source>
+        <target>الاسم الكامل مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-schema.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3317693219686387128" datatype="html">
+        <source>National ID is required.</source>
+        <target>رقم الهوية الوطنية مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-schema.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2112768397949905814" datatype="html">
+        <source>Enter a valid email address.</source>
+        <target>أدخل عنوان بريد إلكتروني صالحًا.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-form/employee-schema.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5874794238234631522" datatype="html">
+        <source>People</source>
+        <target>الأفراد</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7880067974191422443" datatype="html">
+        <source>Add employee</source>
+        <target>إضافة موظف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target>الاسم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3117101317779974113" datatype="html">
+        <source>Fingerprint</source>
+        <target>بصمة الإصبع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2486054555859118396" datatype="html">
+        <source>Add fingerprint</source>
+        <target>إضافة بصمة إصبع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4817207543436133742" datatype="html">
+        <source>Attendance</source>
+        <target>الحضور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5423014366560188975" datatype="html">
+        <source>Fingerprints</source>
+        <target>بصمات الأصابع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6093150011179145729" datatype="html">
+        <source>Finger Index</source>
+        <target>رقم الإصبع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4533150758393178756" datatype="html">
+        <source>Device ID</source>
+        <target>معرّف الجهاز</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7296654860769199229" datatype="html">
+        <source>Enrolled date</source>
+        <target>تاريخ التسجيل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3209056610537919480" datatype="html">
+        <source>Quality</source>
+        <target>الجودة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7670993007222046332" datatype="html">
+        <source>Unknown employee</source>
+        <target>موظف غير معروف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8309078248022653912" datatype="html">
+        <source>Could not load employees.</source>
+        <target>تعذر تحميل الموظفين.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7520908222380597833" datatype="html">
+        <source>Could not load fingerprints.</source>
+        <target>تعذر تحميل بصمات الأصابع.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2284480650272628165" datatype="html">
+        <source>Delete this employee?</source>
+        <target>هل تريد حذف هذا الموظف؟</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee-list/employee-list.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8707835743128679350" datatype="html">
+        <source>Back to employee assets</source>
+        <target>العودة إلى أصول الموظف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3490753423901608900" datatype="html">
+        <source>Loading available assets...</source>
+        <target>جارٍ تحميل الأصول المتاحة...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5789324810191427840" datatype="html">
+        <source>Asset</source>
+        <target>الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6427791310191167089" datatype="html">
+        <source>Select an available asset</source>
+        <target>اختر أصلًا متاحًا</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3841882482744282653" datatype="html">
+        <source>Assigning...</source>
+        <target>جارٍ التخصيص...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5256246122633810383" datatype="html">
+        <source>Assign asset</source>
+        <target>تخصيص الأصل</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7749189786639754205" datatype="html">
+        <source>Could not load available assets.</source>
+        <target>تعذر تحميل الأصول المتاحة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-form.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4883242588930673860" datatype="html">
+        <source>Asset is required.</source>
+        <target>الأصل مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets-form/employee.assets-schema.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3628649487045222681" datatype="html">
+        <source>Employee assets</source>
+        <target>أصول الموظف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8996015912734370152" datatype="html">
+        <source>Loading assets...</source>
+        <target>جارٍ تحميل الأصول...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5873519165369874572" datatype="html">
+        <source>This employee has no assigned assets.</source>
+        <target>لا توجد أصول مخصّصة لهذا الموظف.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1102912391897633655" datatype="html">
+        <source>Returned</source>
+        <target>مُعاد</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4472646252690804119" datatype="html">
+        <source>Asset #<x id="INTERPOLATION" equiv-text="{{ assignment.assetId }}"/></source>
+        <target>الأصل رقم <x id="INTERPOLATION" equiv-text="{{ assignment.assetId }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5667179306142461081" datatype="html">
+        <source>Returning...</source>
+        <target>جارٍ الإرجاع...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7286475218857509962" datatype="html">
+        <source>Return</source>
+        <target>إرجاع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6435128530540717306" datatype="html">
+        <source>Reconnecting…</source>
+        <target>جارٍ إعادة الاتصال...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5040941334959805672" datatype="html">
+        <source>Connecting…</source>
+        <target>جارٍ الاتصال...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5038931830139427399" datatype="html">
+        <source>Could not load this employee&apos;s assets.</source>
+        <target>تعذر تحميل أصول هذا الموظف.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8795671193598196181" datatype="html">
+        <source>Could not load asset details.</source>
+        <target>تعذر تحميل تفاصيل الأصل.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3102564074682566607" datatype="html">
+        <source>Return this asset?</source>
+        <target>هل تريد إرجاع هذا الأصل؟</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1650601935024887044" datatype="html">
+        <source>This asset could not be returned. It may already have been returned or changed by another user.</source>
+        <target>تعذر إرجاع هذا الأصل. ربما أُعيد بالفعل أو غيّره مستخدم آخر.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.assets/employee.assets.component.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1718548465039900307" datatype="html">
+        <source>Attendance logs</source>
+        <target>سجلات الحضور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5203279511751768967" datatype="html">
+        <source>From</source>
+        <target>من</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1640609344969975994" datatype="html">
+        <source>To</source>
+        <target>إلى</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8829497237648100098" datatype="html">
+        <source>Filter</source>
+        <target>تصفية</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4993583732672052528" datatype="html">
+        <source>Loading attendance logs...</source>
+        <target>جارٍ تحميل سجلات الحضور...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7750016242841614525" datatype="html">
+        <source>No attendance logs found for this date range.</source>
+        <target>لم يتم العثور على سجلات حضور ضمن هذا النطاق الزمني.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="250341020448033104" datatype="html">
+        <source>Attendance log ID</source>
+        <target>معرّف سجل الحضور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8239404523447380616" datatype="html">
+        <source>Employee ID</source>
+        <target>معرّف الموظف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6121577287984845389" datatype="html">
+        <source>Event type</source>
+        <target>نوع الحدث</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3284256317417612015" datatype="html">
+        <source>Event time</source>
+        <target>وقت الحدث</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="985595210220022321" datatype="html">
+        <source>Could not load attendance logs.</source>
+        <target>تعذر تحميل سجلات الحضور.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="510526722664146848" datatype="html">
+        <source>Check in</source>
+        <target>تسجيل الحضور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6059409447277252542" datatype="html">
+        <source>Check out</source>
+        <target>تسجيل الانصراف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.attendanceLog/attendancelog-list.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5988857348238796281" datatype="html">
+        <source>Finger index</source>
+        <target>رقم الإصبع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1701759056806804669" datatype="html">
+        <source>Select a finger</source>
+        <target>اختر إصبعًا</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3407061818321766940" datatype="html">
+        <source>Saving...</source>
+        <target>جارٍ الحفظ...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1186777073265998399" datatype="html">
+        <source>Save fingerprint</source>
+        <target>حفظ البصمة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6168547621674465725" datatype="html">
+        <source>Form is invalid. Please fix the highlighted fields.</source>
+        <target>النموذج غير صالح. يرجى تصحيح الحقول المحددة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9177035506841362691" datatype="html">
+        <source>The fingerprint could not be saved. Please try again.</source>
+        <target>تعذر حفظ بصمة الإصبع. يرجى المحاولة مرة أخرى.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-form.component.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6663984337163028567" datatype="html">
+        <source>Employee is required.</source>
+        <target>الموظف مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-schema.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7026033923729741832" datatype="html">
+        <source>Finger index is required.</source>
+        <target>رقم الإصبع مطلوب.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/employees/employee.fingerprint-form/employee.fingerprint-schema.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5587389629950726103" datatype="html">
+        <source>Loading report...</source>
+        <target>جارٍ تحميل التقرير...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2627389018194050638" datatype="html">
+        <source>← Back to reports</source>
+        <target>العودة إلى التقارير ←</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6439365426343089851" datatype="html">
+        <source>General</source>
+        <target>عام</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">174</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3750562558158101219" datatype="html">
+        <source>Generated by</source>
+        <target>أُنشئ بواسطة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="29832309535656200" datatype="html">
+        <source>System</source>
+        <target>النظام</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3973931101896534797" datatype="html">
+        <source>Date</source>
+        <target>التاريخ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4739818603756173797" datatype="html">
+        <source>Summary</source>
+        <target>الملخص</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4201630320011316618" datatype="html">
+        <source>No summary is available for this report.</source>
+        <target>لا يتوفر ملخص لهذا التقرير.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8982271548390673910" datatype="html">
+        <source>Report not found.</source>
+        <target>لم يتم العثور على التقرير.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6396787486514639162" datatype="html">
+        <source>Could not load report details.</source>
+        <target>تعذر تحميل تفاصيل التقرير.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4853481520602463565" datatype="html">
+        <source>Attendance Summary</source>
+        <target>ملخص الحضور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1605723656451517081" datatype="html">
+        <source>Asset Audit</source>
+        <target>تدقيق الأصول</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6620913021064341037" datatype="html">
+        <source>Employee Activity</source>
+        <target>نشاط الموظف</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-details/report-details.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">171</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2893292538434506430" datatype="html">
+        <source>Generate report</source>
+        <target>إنشاء تقرير</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">93,94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+        <target>بحث</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7165368968962594015" datatype="html">
+        <source>Search reports by title</source>
+        <target>ابحث في التقارير حسب العنوان</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5853747731467286531" datatype="html">
+        <source>Report type</source>
+        <target>نوع التقرير</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1470502244480022521" datatype="html">
+        <source>All report types</source>
+        <target>جميع أنواع التقارير</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3428017543503472248" datatype="html">
+        <source>All employees</source>
+        <target>جميع الموظفين</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2197674250183489104" datatype="html">
+        <source>Loading reports...</source>
+        <target>جارٍ تحميل التقارير...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="699904122225447392" datatype="html">
+        <source>No reports found for the selected filters.</source>
+        <target>لم يتم العثور على تقارير تطابق عوامل التصفية المحددة.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <target>العنوان</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8650499415827640724" datatype="html">
+        <source>Type</source>
+        <target>النوع</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5439027264247136551" datatype="html">
+        <source>Select an employee</source>
+        <target>اختر موظفًا</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">111,112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7230561252891577947" datatype="html">
+        <source>This calls a dedicated backend action (not a generic create form) — the server compiles the data and returns the finished report.</source>
+        <target>يستدعي هذا إجراءً مخصصًا من الخادم (وليس نموذج إنشاء عام)؛ حيث يجمع الخادم البيانات ويعيد التقرير مكتملًا.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <target>إلغاء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">125,126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5193539160604294602" datatype="html">
+        <source>Generate</source>
+        <target>إنشاء</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.html</context>
+          <context context-type="linenumber">126,127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6603992311985031984" datatype="html">
+        <source>Could not load reports.</source>
+        <target>تعذر تحميل التقارير.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8583143527787829664" datatype="html">
+        <source>Could not generate report.</source>
+        <target>تعذر إنشاء التقرير.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/reports/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,16 +1,16 @@
 <div class="page-header">
-    <div><span class="eyebrow">Inventory</span><h2>Asset types</h2></div>
-    <a class="add-link" [routerLink]="['/asset-types','new']">Add asset type <span>↗</span></a>
+    <div><span class="eyebrow" i18n>Inventory</span><h2 i18n>Asset types</h2></div>
+    <a class="add-link" [routerLink]="['/asset-types','new']"><span i18n>Add asset type</span> <span>↗</span></a>
 </div>
 @if (loading()) {
-<p>Loading...</p>
+<p i18n>Loading...</p>
 } @else if (error()) {
 <p class="error">{{ error() }}</p>
 } @else {
 <table>
     <thead>
         <tr>
-            <th>Asset Type name</th>
+            <th i18n>Asset type name</th>
             <th></th>
         </tr>
     </thead>
@@ -19,8 +19,8 @@
         <tr>
             <td>{{ assetType.typeName }}</td>
             <td>
-                <a [routerLink]="['/asset-types', assetType.assetTypeId, 'edit']">Edit</a>
-                <button (click)="delete(assetType.assetTypeId)">Delete</button>
+                <a [routerLink]="['/asset-types', assetType.assetTypeId, 'edit']" i18n>Edit</a>
+                <button (click)="delete(assetType.assetTypeId)" i18n>Delete</button>
                 
             </td>
         </tr>

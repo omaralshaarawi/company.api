@@ -1,13 +1,13 @@
 <form [formRoot]="employeeAssetForm">
-	<a [routerLink]="['/employees', employeeId, 'assets']">Back to employee assets</a>
+	<a [routerLink]="['/employees', employeeId, 'assets']" i18n>Back to employee assets</a>
 
 	@if (loading()) {
-		<p>Loading available assets...</p>
+		<p i18n>Loading available assets...</p>
 	} @else {
 		<div class="form-group">
-			<label for="assetId">Asset</label>
+			<label for="assetId" i18n>Asset</label>
 			<select id="assetId" [formField]="employeeAssetForm.assetId">
-				<option value="">Select an available asset</option>
+				<option value="" i18n>Select an available asset</option>
 				@for (item of availableAssets(); track item.assetId) {
 					<option [value]="item.assetId">{{ item.assetName }} ({{ item.serialNumber }})</option>
 				}
@@ -20,7 +20,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="notes">Notes</label>
+			<label for="notes" i18n>Notes</label>
 			<textarea id="notes" rows="3" [formField]="employeeAssetForm.notes"></textarea>
 		</div>
 
@@ -28,6 +28,12 @@
 			<p class="error">{{ error() }}</p>
 		}
 
-		<button type="submit">{{ saving() ? 'Assigning...' : 'Assign asset' }}</button>
+		<button type="submit">
+			@if (saving()) {
+				<span i18n>Assigning...</span>
+			} @else {
+				<span i18n>Assign asset</span>
+			}
+		</button>
 	}
 </form>
